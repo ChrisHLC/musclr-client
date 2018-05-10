@@ -3,6 +3,7 @@ import {GraphComponent} from './visuals/graph/graph.component';
 import {Neo4jService} from './neo4j.service';
 import {Observable} from 'rxjs/Observable';
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import { UsersGraphDetailsComponent } from './graph-drawer/graph-details/users-graph-details/users-graph-details.component';
 
 @Component({
   selector: 'app-graph-display',
@@ -21,6 +22,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
   links: Link[] = [];
 
   @ViewChild(GraphComponent) graph: GraphComponent;
+  // @ViewChild(UsersGraphDetailsComponent) userGraph : UsersGraphDetailsComponent;
 
   constructor(private neo4jService: Neo4jService) {
   }
@@ -33,7 +35,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
       .subscribe((data: { links: Link[], nodes: Node[] }) => {
 
           data.nodes.forEach(function (node) {
-            self.nodes.push(new Node(node.id, node.group, node.username, node.level));
+            self.nodes.push(new Node(node.id, node.role, node.username, node.level));
           });
           this.graph.forceDirectedGraph.initNodes();
 
@@ -60,7 +62,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
             .subscribe((data: { links: Link[], nodes: Node[] }) => {
 
                 data.nodes.forEach(function (node) {
-                  self.nodes.push(new Node(node.id, node.group, node.username, node.level));
+                  self.nodes.push(new Node(node.id, node.role, node.username, node.level));
                 });
                 data.links.forEach(function (link) {
                   self.links.push(new Link(link.source, link.target, link.label, link.sourceGroup, link.targetGroup));
@@ -76,7 +78,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
             .subscribe((neo4j: { links: Link[], nodes: Node[] }) => {
 
                 neo4j.nodes.forEach(function (node) {
-                  self.nodes.push(new Node(node.id, node.group, node.workout, 'Silver'));
+                  self.nodes.push(new Node(node.id, node.role, node.workout, 'Silver'));
                 });
 
                 neo4j.links.forEach(function (link) {
@@ -93,8 +95,12 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
     } else {
       // apparently you have to remove the visuals (first two line) but also the data in the force graph
       self.links = self.links.filter(link => link.sourceGroup !== data && link.targetGroup !== data);
-      self.nodes = self.nodes.filter(node => node.group !== data);
+      self.nodes = self.nodes.filter(node => node.role !== data);
       self.graph.forceDirectedGraph.updateData(self.nodes, self.links);
     }
+  }
+
+  onNodeColor($event){
+    this.nodes = $event;
   }
 }
