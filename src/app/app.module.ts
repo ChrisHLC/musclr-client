@@ -45,6 +45,7 @@ import {UserCarouselComponent} from './components/user-carousel/user-carousel.co
 import {FriendItemComponent} from './components/scheduler-container/friend-item/friend-item.component';
 import {MemberItemComponent} from './components/community/member-item/member-item.component';
 import {CommunityService} from './components/community/community.service';
+import {WorkoutService} from './components/workout/workout.service';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,8 @@ import {CommunityService} from './components/community/community.service';
     ExerciseService,
     CommunityService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-    UsersGraphDetailsService
+    UsersGraphDetailsService,
+    WorkoutService
   ],
   bootstrap: [AppComponent]
 })

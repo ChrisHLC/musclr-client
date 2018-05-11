@@ -8,7 +8,7 @@
       <!--bodyparts-->
       <div class="col-md-3 freeze">
         <div class="list-group" >
-          <a *ngFor="let seance of mySeances; let i=index" class="list-group-item" (click)="select(i)" [ngClass]="{'active': selectedIndex == i }">{{seance.name}} </a>
+          <a *ngFor="let seance of mySeances; let i=index" class="list-group-item" (click)="select(i)" [ngClass]="{'active': selectedIndex == i }">{{seance}} </a>
         </div>
       </div>
       <!--/bodyparts-->
