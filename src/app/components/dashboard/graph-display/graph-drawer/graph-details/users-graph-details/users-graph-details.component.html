@@ -6,8 +6,8 @@
     <h3 class="h3-responsive">Les noeuds</h3>
   </div>
   <div class="btn-group">
-      <label *ngFor="let button of nodeButtons" class="btn btn-elegant btn-sm waves-light" [(ngModel)]=checkModel[button.id]
-      mdbRadio="{{button.label}}" mdbWavesEffect  (click)="nodeColor(button.id)">
+      <label *ngFor="let button of nodeButtons" class="btn btn-elegant btn-sm waves-light" [(ngModel)]="radioModel"
+      mdbRadio="{{button.id}}" mdbWavesEffect  (click)="nodeColor(button.id)">
         {{button.label}}
       </label>
   </div>

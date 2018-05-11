@@ -3,6 +3,8 @@ import {GraphComponent} from './visuals/graph/graph.component';
 import {Neo4jService} from './neo4j.service';
 import {Observable} from 'rxjs/Observable';
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import { UsersGraphDetailsComponent } from './graph-drawer/graph-details/users-graph-details/users-graph-details.component';
+import { UsersGraphDetailsService } from './graph-drawer/graph-details/users-graph-details/users-graph-details.service';
 
 @Component({
   selector: 'app-graph-display',
@@ -17,12 +19,12 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
     {id: 'events', label: 'Événement'}];
   public checkModel: any = {users: true, gyms: false, towns: false, events: false};
 
-  nodes: Node[] = [];
-  links: Link[] = [];
+  public nodes: Node[] = [];
+  public links: Link[] = [];
 
   @ViewChild(GraphComponent) graph: GraphComponent;
 
-  constructor(private neo4jService: Neo4jService) {
+  constructor(private neo4jService: Neo4jService, private userGraphService: UsersGraphDetailsService) {
   }
 
   ngOnInit() {
@@ -33,15 +35,18 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
       .subscribe((neo4j: { links: Link[], nodes: Node[] }) => {
 
           neo4j.nodes.forEach(function (node) {
-            self.nodes.push(new Node(node.id, node.group, node.label, node.level));
+            self.nodes.push(new Node(node.id, node.group, node.role, node.username, node.level));
           });
+          this.userGraphService.setNodes(self.nodes);
+          this.graph.forceDirectedGraph.nodes = self.nodes;
           this.graph.forceDirectedGraph.initNodes();
-
           neo4j.links.forEach(function (link) {
             self.links.push(new Link(link.source, link.target, link.label));
           });
-
+          this.userGraphService.setLinks(self.links);
+          this.graph.forceDirectedGraph.links = self.links;
           this.graph.forceDirectedGraph.initLinks();
+          
         },
         error => Observable.throw(error || 'Server error')
       );
@@ -134,4 +139,5 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
       self.graph.forceDirectedGraph.updateData(self.nodes, self.links);
     }
   }
+
 }

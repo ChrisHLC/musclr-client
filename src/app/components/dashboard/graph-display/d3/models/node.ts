@@ -16,14 +16,16 @@ export class Node implements d3.SimulationNodeDatum {
 
   id: string;
   group: string;
+  role: string;
   label: string;
-  level: number;
+  level: string;
   normal = 0;
   color: string;
 
-  constructor(id, group, label, level) {
+  constructor(id, group, role, label, level) {
     this.id = id;
     this.group = group;
+    this.role = role;
     this.label = label;
     this.level = level;
     // switch (level) {

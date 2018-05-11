@@ -1,6 +1,5 @@
 import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, Input, OnInit} from '@angular/core';
 import {D3Service, ForceDirectedGraph} from '../../d3';
-import { UsersGraphDetailsService } from '../../graph-drawer/graph-details/users-graph-details/users-graph-details.service';
 
 @Component({
   selector: 'app-graph',
@@ -35,6 +34,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+
     /** Receiving an initialized simulated forceDirectedGraph from our custom d3 service */
     this.forceDirectedGraph = this.d3Service.getForceDirectedGraph(this.nodes, this.links, this.options);
 

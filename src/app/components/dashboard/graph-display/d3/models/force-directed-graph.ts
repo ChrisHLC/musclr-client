@@ -2,6 +2,7 @@ import {Link} from './link';
 import {Node} from './node';
 import * as d3 from 'd3';
 import {EventEmitter} from '@angular/core';
+import { UsersGraphDetailsService } from '../../graph-drawer/graph-details/users-graph-details/users-graph-details.service';
 
 const FORCES = {
   LINKS: 0.2,
@@ -28,7 +29,6 @@ export class ForceDirectedGraph {
     if (!this.simulation) {
       throw new Error('simulation was not initialized yet');
     }
-
     this.simulation.nodes(this.nodes);
   }
 

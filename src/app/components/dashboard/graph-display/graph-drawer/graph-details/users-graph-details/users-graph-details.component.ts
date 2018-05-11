@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UsersGraphDetailsService } from './users-graph-details.service';
+import { Link, Node } from '../../../d3/models';
 
 @Component({
   selector: 'app-users-graph-details',
@@ -8,53 +9,49 @@ import { UsersGraphDetailsService } from './users-graph-details.service';
 })
 export class UsersGraphDetailsComponent implements OnInit {
 
-  @Input('nodes') nodes;
-  @Input('links') links;
-  node: string;
-  public nodeButtons = [{ id: 'level', label: 'Niveau' },
-  { id: 'role', label: 'Rôle' }];
-  public checkModel: any = { level: true, role: false };
+  public nodes;
+  public links;
 
-  constructor(private data: UsersGraphDetailsService) { }
+  public nodeButtons = [{ id: 'level', label: 'Niveau' }, { id: 'role', label: 'Rôle' }];
+  public radioModel: string = "";
+
+  constructor(private userGraphService: UsersGraphDetailsService) { }
 
   ngOnInit() {
-    this.data.currentNode.subscribe(node => this.node=node)
+    // this.nodes = this.userGraphService.getNodes();
   }
 
-  newNode(){
-    this.data.changeNode("yep!")
+  nodeColor(data: string) {
+    this.nodes = this.userGraphService.getNodes();
+    if (this.radioModel === 'level') {
+      this.nodes.forEach(function (node: Node) {
+        switch (node.level) {
+          case 'Gold':
+            node.color = '#D4AF37';
+            break;
+          case 'Silver':
+            node.color = '#C0C0C0';
+            break;
+          case 'Bronze':
+            node.color = '#CD7F32';
+            break;
+        }
+      });
+      this.userGraphService.setNodes(this.nodes);
+    }
+    if (this.radioModel === 'role') {
+      this.nodes.forEach(function (node: Node) {
+        switch (node.role) {
+          case 'MusclR':
+            node.color = '#0040ff';
+            break;
+          case 'CoachR':
+            node.color = '#000000';
+            break;
+        }
+      });
+      this.userGraphService.setNodes(this.nodes);
+    }
+
   }
-
-  // nodeColor(data: string){
-  //   if(this.checkModel[data] === true){
-  //     this.nodes.array.forEach( node => {
-  //       switch (data){
-  //         case 'level':
-  //           switch (node.level) { 
-  //             case 'Gold': 
-  //               node.color = '#D4AF37'; 
-  //               break; 
-  //             case 'Silver': 
-  //               node.color = '#C0C0C0'; 
-  //               break; 
-  //             case 'Bronze': 
-  //               node.color = '#CD7F32'; 
-  //               break; 
-  //           }
-  //         case 'role':
-  //         switch (node.role) { 
-  //           case 'MusclR': 
-  //             node.color = '#0040ff'; 
-  //             break; 
-  //           case 'CoachR': 
-  //             node.color = '#000000'; 
-  //             break; 
-  //         }
-
-          
-  //       }
-  //     });
-      
-  //   }
-  // }
 }

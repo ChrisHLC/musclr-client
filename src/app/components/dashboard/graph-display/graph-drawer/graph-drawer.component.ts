@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-
+import {Component, OnInit, Input} from '@angular/core';
+import { Link, Node } from '../d3/models';
 @Component({
   selector: 'app-graph-drawer',
   templateUrl: './graph-drawer.component.html',
@@ -7,6 +7,10 @@ import {Component, OnInit} from '@angular/core';
 })
 export class GraphDrawerComponent implements OnInit {
 
+  @Input() 
+  nodes: Node[] = [];
+  @Input() 
+  links: Link[] = [];
   constructor() { }
 
   ngOnInit() {

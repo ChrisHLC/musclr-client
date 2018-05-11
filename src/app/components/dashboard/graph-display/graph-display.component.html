@@ -1,6 +1,6 @@
 <mat-drawer-container fullscreen id="curtain" style="margin-top: 64px">
   <mat-drawer #drawer mode="over" position="end">
-    <app-graph-drawer></app-graph-drawer>
+    <app-graph-drawer [nodes]="nodes" [liens]="links"></app-graph-drawer>
   </mat-drawer>
 
   <div class="btn-group">
