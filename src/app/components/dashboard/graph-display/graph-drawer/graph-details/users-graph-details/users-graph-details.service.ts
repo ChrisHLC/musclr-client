@@ -1,16 +1,28 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Subject } from 'rxjs';
+import { Link, Node } from '../../../d3/models';
 
 @Injectable()
 export class UsersGraphDetailsService {
 
-  private nodeSource = new BehaviorSubject<string>("yoyo");
-  currentNode = this.nodeSource.asObservable();
-  
-  constructor() { }
+  nodes: any;
+  links: any;
 
-  changeNode(node: string){
-    this.nodeSource.next(node);
+  constructor( ) { }
+
+  getNodes(){
+    return this.nodes;
+  }
+
+  setNodes(newNodes: Node[]){
+    this.nodes = newNodes;
+  }
+  getLinks(){
+    return this.links;
+  }
+
+  setLinks(newLinks: Link[]){
+    this.links = newLinks;
   }
 
 }
