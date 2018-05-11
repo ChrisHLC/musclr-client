@@ -7,10 +7,17 @@ import {D3Service, ForceDirectedGraph} from '../../d3';
   template: `
     <svg #svg [attr.width]="options.width" [attr.height]="options.height">
       <g [zoomableOf]="svg">
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refY="3" orient="auto" markerUnits="strokeWidth" refX="9">
+            <path d="M0,0 L0,6 L9,3 z" fill="E5E5E5"></path>
+          </marker>
+        </defs>
         <g [linkVisual]="link" *ngFor="let link of links"></g>
-        <g [nodeVisual]="node" *ngFor="let node of nodes" (click)="drawer.toggle()"
-        routerLink="/graph/{{node.group}}"
-           [draggableNode]="node" [draggableInGraph]="forceDirectedGraph"></g>
+        <g [nodeVisual]="node" *ngFor="let node of nodes"
+           (click)="drawer.toggle()"
+           routerLink="/graph/{{node.group}}"
+           [draggableNode]="node"
+           [draggableInGraph]="forceDirectedGraph"></g>
       </g>
     </svg>
   `,
@@ -46,7 +53,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
     this.forceDirectedGraph.ticker.subscribe((d) => {
       this.ref.markForCheck();
     });
- 
+
   }
 
   ngAfterViewInit() {

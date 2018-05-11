@@ -9,12 +9,15 @@ export class Link implements d3.SimulationLinkDatum<Node> {
   target: Node;
   strength: number;
   label: string;
+  directed: boolean;
 
-  constructor(source, target, label) {
+
+  constructor(source, target, label, directed) {
     this.source = source;
     this.target = target;
     this.strength = 1;
     this.label = label;
+    this.directed = directed;
   }
 
 
@@ -28,5 +31,19 @@ export class Link implements d3.SimulationLinkDatum<Node> {
 
   get transform(): string {
     return 'translate(' + this.translation + ')' + 'rotate(' + this.angle + ')';
+  }
+
+  get markerEnd(): string {
+    return this.directed ? 'url(#arrow)' : '';
+  }
+
+  get x2(): number {
+    const adjacent = (Math.cos(this.angle / 180 * Math.PI) * this.target.r);
+    return (this.target.x - this.source.x > 0) ? this.target.x - adjacent : this.target.x + adjacent;
+  }
+
+  get y2(): number {
+    const opposite = (Math.sin(this.angle / 180 * Math.PI) * this.target.r);
+    return (this.target.x - this.source.x > 0) ? this.target.y - opposite : this.target.y + opposite;
   }
 }

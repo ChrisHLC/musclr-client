@@ -41,7 +41,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
           this.graph.forceDirectedGraph.nodes = self.nodes;
           this.graph.forceDirectedGraph.initNodes();
           neo4j.links.forEach(function (link) {
-            self.links.push(new Link(link.source, link.target, link.label));
+            self.links.push(new Link(link.source, link.target, link.label, link.directed));
           });
           this.userGraphService.setLinks(self.links);
           this.graph.forceDirectedGraph.links = self.links;
@@ -69,7 +69,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
                 });
 
                 neo4j.links.forEach(function (link) {
-                  self.links.push(new Link(link.source, link.target, link.label));
+                  self.links.push(new Link(link.source, link.target, link.label, link.directed));
                 });
 
                 // self.graph.forceDirectedGraph.initLinks();
@@ -87,7 +87,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
                 });
 
                 neo4j.links.forEach(function (link) {
-                  self.links.push(new Link(link.source, link.target, link.label));
+                  self.links.push(new Link(link.source, link.target, link.label, link.directed));
                 });
 
                 // self.graph.forceDirectedGraph.initLinks();
@@ -105,7 +105,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
                 });
 
                 neo4j.links.forEach(function (link) {
-                  self.links.push(new Link(link.source, link.target, link.label));
+                  self.links.push(new Link(link.source, link.target, link.label, link.directed));
                 });
 
                 // self.graph.forceDirectedGraph.initLinks();
@@ -122,7 +122,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
                   self.nodes.push(new Node(node.id, node.group, node.label, node.level));
                 });
                 neo4j.links.forEach(function (link) {
-                  self.links.push(new Link(link.source, link.target, link.label));
+                  self.links.push(new Link(link.source, link.target, link.label, link.directed));
                 });
                 self.graph.forceDirectedGraph.updateData(self.nodes, self.links);
 
