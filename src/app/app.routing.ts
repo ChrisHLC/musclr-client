@@ -9,26 +9,32 @@ import {NewsComponent} from './components/news/news.component';
 import {CommunityComponent} from './components/community/community.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import {ExercisesComponent} from './components/exercises/exercises.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {GraphDisplayComponent} from './components/dashboard/graph-display/graph-display.component';
-import { UsersGraphDetailsComponent } from './components/dashboard/graph-display/graph-drawer/graph-details/users-graph-details/users-graph-details.component';
-import { EventsGraphDetailsComponent } from './components/dashboard/graph-display/graph-drawer/graph-details/events-graph-details/events-graph-details.component';
-import { TownsGraphDetailsComponent } from './components/dashboard/graph-display/graph-drawer/graph-details/towns-graph-details/towns-graph-details.component';
-import { GymsGraphDetailsComponent } from './components/dashboard/graph-display/graph-drawer/graph-details/gyms-graph-details/gyms-graph-details.component';
-import {WorkoutComponent} from './components/workout/workout.component';
+/* tslint:disable:max-line-length */
+import {UsersGraphDetailsComponent} from './components/dashboard/graph-display/graph-drawer/graph-details/users-graph-details/users-graph-details.component';
+import {EventsGraphDetailsComponent} from './components/dashboard/graph-display/graph-drawer/graph-details/events-graph-details/events-graph-details.component';
+import {TownsGraphDetailsComponent} from './components/dashboard/graph-display/graph-drawer/graph-details/towns-graph-details/towns-graph-details.component';
+import {GymsGraphDetailsComponent} from './components/dashboard/graph-display/graph-drawer/graph-details/gyms-graph-details/gyms-graph-details.component';
+/* tslint:enable:max-line-length */
+import {MyWorkoutComponent} from './components/my-workout/my-workout.component';
 import {WorkoutCarouselComponent} from './components/workout-carousel/workout-carousel.component';
+import {WorkoutComponent} from './components/workout/workout.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'graph', component: GraphDisplayComponent, children: [
-    {path: 'users', component: UsersGraphDetailsComponent},
-    {path: 'events', component: EventsGraphDetailsComponent},
-    {path: 'towns', component: TownsGraphDetailsComponent},
-    {path: 'gyms', component: GymsGraphDetailsComponent}
-  ]},
+  {
+    path: 'graph', component: GraphDisplayComponent, children: [
+      {path: 'users', component: UsersGraphDetailsComponent},
+      {path: 'events', component: EventsGraphDetailsComponent},
+      {path: 'towns', component: TownsGraphDetailsComponent},
+      {path: 'gyms', component: GymsGraphDetailsComponent}
+    ]
+  },
   {path: 'community', component: CommunityComponent},
   {path: 'exercises', component: ExercisesComponent},
+  {path: 'my-workout', component: MyWorkoutComponent},
   {path: 'login', component: LoginComponent},
   {path: 'news', component: NewsComponent},
   {path: 'profile', component: ProfileComponent},
