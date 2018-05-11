@@ -7,11 +7,17 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {Router} from '@angular/router';
 import {RequestOptions} from './request-options.interface';
+import {Subject} from 'rxjs/Subject';
+import {FriendRequest} from '../../models/friend-request.model';
 
 @Injectable()
 export class AuthService {
 
   private usersUrl = environment.serverUrl + 'users/';
+  private friendsUrl = environment.serverUrl + 'friend-requests/';
+   friendRequestNumber = new Subject<number>();
+  friendRequestNumber$ = this.friendRequestNumber.asObservable();
+
   private httpOptions: RequestOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -29,11 +35,13 @@ export class AuthService {
     return this.httpClient.post(this.usersUrl + 'login', body, this.httpOptions)
       .map((httpResponse: HttpResponse<any>) => {
         localStorage.setItem('token', httpResponse.headers.get('x-authorization'));
+        this.getFriendRequests().subscribe(
+          (data: FriendRequest[]) => this.friendRequestNumber.next(data.length)
+        );
         return httpResponse.body;
       })
       .catch((error: any) => Observable.throw(error || 'Server error'));
   }
-
 
   logout() {
     localStorage.removeItem('token');
@@ -54,6 +62,10 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return this.getToken() !== '';
+  }
+
+  getFriendRequests() {
+    return this.httpClient.get(this.friendsUrl);
   }
 
 }

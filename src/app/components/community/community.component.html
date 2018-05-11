@@ -6,7 +6,7 @@
     <app-user-carousel></app-user-carousel>
     <div class="card my-4">
       <div class="card-body text-center">
-        <input type="text" placeholder="Recherche par login...">
+        <input type="text" [formControl]="term" placeholder="Recherche par login...">
         <form class="py-2">
           <div class="btn-group-justified">
             <label class="btn btn-elegant waves-light" [(ngModel)]="checkModel.bronze" name="bronze" mdbCheckbox
@@ -27,126 +27,11 @@
     </div>
 
 
-    <!--Grid row-->
     <div class="row">
-
-      <!--Grid column-->
-      <div class="col-md-4 col-lg-3">
-
-        <!--Card-->
-        <div class="card card-personal">
-
-          <!--Card image-->
-          <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(29).jpg" alt="Card image cap">
-          <!--Card image-->
-
-          <!--Card content-->
-          <div class="card-body">
-            <!--Title-->
-            <a><h4 class="card-title title-one">Clara</h4></a>
-            <p class="card-meta">Joined in 2013</p>
-
-            <!--Text-->
-            <p class="card-text">Clara is an photographer living in Madrid.</p>
-            <hr>
-            <a class="card-meta"><span><i class="fa fa-user"></i>22 Friends</span></a>
-          </div>
-          <!--Card content-->
-
-        </div>
-        <!--Card-->
-
+      <div class="col-md-4 col-lg-3 mb-4" *ngFor="let user of filteredUserList">
+        <app-member-item [user]="user"></app-member-item>
       </div>
-      <!--Grid column-->
-
-      <!--Grid column-->
-      <div class="col-md-4 col-lg-3">
-
-        <!--Card-->
-        <div class="card card-personal">
-
-          <!--Card image-->
-          <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(29).jpg" alt="Card image cap">
-          <!--Card image-->
-
-          <!--Card content-->
-          <div class="card-body">
-            <!--Title-->
-            <a><h4 class="card-title title-one">Clara</h4></a>
-            <p class="card-meta">Joined in 2013</p>
-
-            <!--Text-->
-            <p class="card-text">Clara is an photographer living in Madrid.</p>
-            <hr>
-            <a class="card-meta"><span><i class="fa fa-user"></i>22 Friends</span></a>
-          </div>
-          <!--Card content-->
-
-        </div>
-        <!--Card-->
-
-      </div>
-
-      <!--Grid column-->
-      <div class="col-md-4 col-lg-3">
-
-        <!--Card-->
-        <div class="card card-personal">
-
-          <!--Card image-->
-          <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(29).jpg" alt="Card image cap">
-          <!--Card image-->
-
-          <!--Card content-->
-          <div class="card-body">
-            <!--Title-->
-            <a><h4 class="card-title title-one">Clara</h4></a>
-            <p class="card-meta">Joined in 2013</p>
-
-            <!--Text-->
-            <p class="card-text">Clara is an photographer living in Madrid.</p>
-            <hr>
-            <a class="card-meta"><span><i class="fa fa-user"></i>22 Friends</span></a>
-          </div>
-          <!--Card content-->
-
-        </div>
-        <!--Card-->
-
-      </div>
-      <!--Grid column-->
-
-      <!--Grid column-->
-      <div class="col-md-4 col-lg-3">
-
-        <!--Card-->
-        <div class="card card-personal">
-
-          <!--Card image-->
-          <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(29).jpg" alt="Card image cap">
-          <!--Card image-->
-
-          <!--Card content-->
-          <div class="card-body">
-            <!--Title-->
-            <a><h4 class="card-title title-one">Clara</h4></a>
-            <p class="card-meta">Joined in 2013</p>
-
-            <!--Text-->
-            <p class="card-text">Clara is an photographer living in Madrid.</p>
-            <hr>
-            <a class="card-meta"><span><i class="fa fa-user"></i>22 Friends</span></a>
-          </div>
-          <!--Card content-->
-
-        </div>
-        <!--Card-->
-
-      </div>
-      <!--Grid column-->
     </div>
-    <!--Grid row-->
-
   </div>
 
 </section>

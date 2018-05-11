@@ -1,5 +1,6 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +9,16 @@ import {AuthService} from '../../auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  friendRequestNumber: number;
+
   mySections = [
     {'name': 'Accueil', 'routerLink': '/'},
     {'name': 'News', 'routerLink': '/news'},
     {'name': 'Communauté', 'routerLink': '/community'},
     {'name': 'Exercices', 'routerLink': '/exercises'},
-    {'name': 'Séances', 'routerLink': '/workout'}
-  ]
+    {'name': 'Séances', 'routerLink': '/workout'},
+    {'name': 'Dashboard', 'routerLink': '/dashboard'}
+  ];
 
   selectedIndex: number;
 
@@ -26,7 +30,12 @@ export class HeaderComponent implements OnInit {
     this.selectedIndex = -1;
   }
 
-  constructor(public authService: AuthService) {
+
+  constructor(private authService: AuthService, private snackbar: MatSnackBar) {
+
+    this.authService.friendRequestNumber$.subscribe(
+      (data: number) => this.friendRequestNumber = data
+    );
   }
 
   ngOnInit() {
@@ -39,6 +48,20 @@ export class HeaderComponent implements OnInit {
 
   get isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
+  }
+
+  acceptFriendRequest() {
+    this.authService.friendRequestNumber.next(0);
+    this.snackbar.open('Demande d\'ami acceptée', null, {
+      duration: 1500
+    });
+  }
+
+  refuseFriendRequest() {
+    this.authService.friendRequestNumber.next(0);
+    this.snackbar.open('Demande d\'ami refusée', null, {
+      duration: 1500
+    });
   }
 
 }

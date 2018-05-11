@@ -14,7 +14,7 @@ export class SchedulerService {
   private eventListSubject = new Subject();
   eventList$ = this.eventListSubject.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(private httpClient: HttpClient) {
   }
 
   loadEvents(username) {
@@ -26,39 +26,39 @@ export class SchedulerService {
   }
 
   getEventsForAuthenticatedUser() {
-    return this.http.get(this.eventsUrl);
+    return this.httpClient.get(this.eventsUrl);
   }
 
   saveEvent(event: Event): Observable<Object> {
-    return this.http.post(this.eventsUrl, JSON.stringify(event), {
+    return this.httpClient.post(this.eventsUrl, JSON.stringify(event), {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     });
   }
 
   updateEvent(id: string, event: Event): Observable<Object> {
-    return this.http.patch(this.eventsUrl + id, JSON.stringify(event), {
+    return this.httpClient.patch(this.eventsUrl + id, JSON.stringify(event), {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     });
   }
 
   deleteEvent(id: string): Observable<Object> {
-    return this.http.delete(this.eventsUrl + id);
+    return this.httpClient.delete(this.eventsUrl + id);
   }
 
   getFriendsForAuthenticatedUser() {
-    return this.http.get(this.usersUrl + 'friends');
+    return this.httpClient.get(this.usersUrl + 'friends');
   }
 
   getFriendsForAuthenticatedUserByUsername(username: String) {
-    return this.http.get(this.usersUrl + 'friends/' + username);
+    return this.httpClient.get(this.usersUrl + 'friends/' + username);
   }
 
   getFriendsEvents(username: String) {
-    return this.http.get(this.eventsUrl + 'friends/' + username);
+    return this.httpClient.get(this.eventsUrl + 'friends/' + username);
   }
 
   getWorkoutsForAuthenticatedUser() {
-    return this.http.get(this.usersUrl + 'workouts');
+    return this.httpClient.get(this.usersUrl + 'workouts');
 
   }
 }
