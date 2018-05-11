@@ -14,31 +14,21 @@ export class Node implements d3.SimulationNodeDatum {
   // event
   workout?: string;
 
+  role?: string;
+
   id: string;
   group: string;
-  role: string;
   label: string;
   level: string;
   normal = 0;
   color: string;
 
-  constructor(id, group, role, label, level) {
+  constructor(id, group, label, level, role?) {
     this.id = id;
     this.group = group;
-    this.role = role;
     this.label = label;
     this.level = level;
-    // switch (level) {
-    //   case 'Gold':
-    //     this.color = '#D4AF37';
-    //     break;
-    //   case 'Silver':
-    //     this.color = '#C0C0C0';
-    //     break;
-    //   case 'Bronze':
-    //     this.color = '#CD7F32';
-    //     break;
-    // }
+    this.role = role?role:'';
   }
 
   // normal = () => {
@@ -53,8 +43,4 @@ export class Node implements d3.SimulationNodeDatum {
   get fontSize() {
     return (30 * this.normal + 10) + 'px';
   }
-
-  // get color() {
-  //   return this.level === 1 ? 'red' : 'gray';
-  // }
 }

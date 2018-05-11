@@ -35,7 +35,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
       .subscribe((neo4j: { links: Link[], nodes: Node[] }) => {
 
           neo4j.nodes.forEach(function (node) {
-            self.nodes.push(new Node(node.id, node.group, node.role, node.username, node.level));
+            self.nodes.push(new Node(node.id, node.group, node.label, node.level, node.role));
           });
           this.userGraphService.setNodes(self.nodes);
           this.graph.forceDirectedGraph.nodes = self.nodes;
