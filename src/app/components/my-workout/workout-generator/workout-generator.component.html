@@ -3,13 +3,20 @@
 
   <div class="card my-4">
     <div class="card-body text-center">
-      <div class="form-container">
+
+      <label class="btn btn-elegant waves-light" name="demo" mdbCheckbox mdbRippleRadius
+      (click)="demo()">
+      demo
+      </label>
+
+      <form class="form-container form-group" (ngSubmit)="onSubmit()">
         <mat-form-field>
-          <input matInput placeholder="Name">
+          <input matInput placeholder="Name" id="name"
+                 [(ngModel)]="formModel.name" name="name">
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select placeholder="Fitness Level">
+          <mat-select placeholder="Fitness Level" id="level" [(ngModel)]="formModel.level" name="level">
             <mat-option *ngFor="let level of exerciseLevelList" [value]="level">
               {{ level }}
             </mat-option>
@@ -17,15 +24,15 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select placeholder="Workout Duration">
-            <mat-option *ngFor="let duration of workoutDurations" [value]="duration">
-              {{ duration }}
+          <mat-select placeholder="Workout Duration" id="duration" [(ngModel)]="formModel.duration" name="duration">
+            <mat-option *ngFor="let duration of workoutDurations" [value]="duration.value">
+              {{ duration.viewValue }}
             </mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select placeholder="Type of Workout">
+          <mat-select placeholder="Type of Workout" id="type" [(ngModel)]="formModel.type" name="type">
             <mat-option *ngFor="let type of exerciseTypeList" [value]="type">
               {{ type }}
             </mat-option>
@@ -33,15 +40,15 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select placeholder="Workout Goals">
-            <mat-option *ngFor="let goal of workoutGoals" [value]="goal.value">
-              {{ goal.viewValue }}
+          <mat-select placeholder="Workout Goals" id="workoutType" [(ngModel)]="formModel.workoutType" name="workoutType">
+            <mat-option *ngFor="let workoutType of workoutTypeList" [value]="workoutType">
+              {{ workoutType }}
             </mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select placeholder="Access to Gym">
+          <mat-select placeholder="Access to Gym" [(ngModel)]="formModel.equipment" id="equipment" name="equipment">
             <mat-option [value]="true">
               Yes
             </mat-option>
@@ -51,19 +58,19 @@
           </mat-select>
         </mat-form-field>
 
+        <div class="py-2">
+          <div class="btn-group-justified">
 
-      </div>
+            <label class="btn btn-elegant waves-light" name="reset" mdbCheckbox mdbRippleRadius (click)="resetForm()">
+              Reset
+            </label>
 
-      <form class="py-2">
-        <div class="btn-group-justified">
-          <label class="btn btn-elegant waves-light" name="reset" mdbCheckbox mdbRippleRadius (click)="resetForm()">
-            Reset
-          </label>
-          <label class="btn btn-elegant waves-light" name="submit" mdbCheckbox mdbRippleRadius (click)="generateWorkout()">
-            Submit
-          </label>
+            <button type="submit" class="btn btn-elegant waves-light" mdbRippleRadius>Submit</button>
+          </div>
         </div>
       </form>
+
+
     </div>
   </div>
 

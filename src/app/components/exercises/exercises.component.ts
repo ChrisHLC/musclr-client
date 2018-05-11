@@ -14,9 +14,9 @@ export class ExercisesComponent implements OnInit, OnDestroy {
   @Output()
   onGroupSelected: EventEmitter<String> = new EventEmitter<any>();
 
-  groupList: String[];
-  groupSelected: String;
-  selectedGroupIndex: Number;
+  groupList: string[];
+  groupSelected: string;
+  selectedGroupIndex: number;
   show = 3;
   buttonDisabled: boolean;
 
@@ -32,7 +32,7 @@ export class ExercisesComponent implements OnInit, OnDestroy {
     }
   }
 
-  clicked(group: String, index: Number): void {
+  clicked(group: string, index: number): void {
     this.groupSelected = group;
     this.onGroupSelected.emit(group);
     this.selectedGroupIndex = index;
@@ -43,7 +43,7 @@ export class ExercisesComponent implements OnInit, OnDestroy {
 
   }
 
-  getExerciseList(group: String): void {
+  getExerciseList(group: string): void {
     this.exerciseService.getExerciseListByGroup(group)
       .subscribe(
         data => {

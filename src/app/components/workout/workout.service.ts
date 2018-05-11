@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Workout} from '../../models/workout.model';
+import {WorkoutFormModel} from '../../models/workout-form.model';
 
 @Injectable()
 export class WorkoutService {
@@ -11,14 +12,14 @@ export class WorkoutService {
   constructor(private http: HttpClient) {
   }
 
-  generateWorkout(name, level, duration, type, cardio, equipment): Observable<Workout> {
-    const params = {
-      name: name,
-      level: level,
-      duration: duration,
-      type: type,
-      cardio: cardio,
-      equipment: equipment
-    };
+  getWorkoutTypeList(): Observable<string[]> {
+    return this.http.get<string[]>(this.springBootServerUrl + 'types');
+  }
+
+  generateWorkout(form: WorkoutFormModel): Observable<any> {
+
+    return this.http.post(this.springBootServerUrl + 'generate', JSON.stringify(form), {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+    });
   }
 }

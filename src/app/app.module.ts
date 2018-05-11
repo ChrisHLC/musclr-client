@@ -55,6 +55,7 @@ import {UserCarouselComponent} from './components/user-carousel/user-carousel.co
 import {MyWorkoutComponent} from './components/my-workout/my-workout.component';
 import {WorkoutGeneratorComponent} from './components/my-workout/workout-generator/workout-generator.component';
 import {WorkoutWalkthroughComponent} from './components/my-workout/workout-walkthrough/workout-walkthrough.component';
+import {WorkoutService} from './components/workout/workout.service';
 
 @NgModule({
   declarations: [
@@ -119,7 +120,8 @@ import {WorkoutWalkthroughComponent} from './components/my-workout/workout-walkt
     Neo4jService,
     ExerciseService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-    UsersGraphDetailsService
+    UsersGraphDetailsService,
+    WorkoutService
   ],
   bootstrap: [AppComponent]
 })
