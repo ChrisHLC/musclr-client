@@ -44,9 +44,6 @@ import {GraphComponent} from './components/dashboard/graph-display/visuals/graph
 import {LinkVisualComponent, NodeVisualComponent} from './components/dashboard/graph-display/visuals/shared';
 import {GraphDisplayComponent} from './components/dashboard/graph-display/graph-display.component';
 import {GraphDrawerComponent} from './components/dashboard/graph-display/graph-drawer/graph-drawer.component';
-import {MemberItemComponent} from './components/community/member-item/member-item.component';
-import {CommunityService} from './components/community/community.service';
-import {FriendItemComponent} from './components/scheduler-container/friend-item/friend-item.component';
 /* tslint:disable:max-line-length */
 import {UsersGraphDetailsComponent} from './components/dashboard/graph-display/graph-drawer/graph-details/users-graph-details/users-graph-details.component';
 import {EventsGraphDetailsComponent} from './components/dashboard/graph-display/graph-drawer/graph-details/events-graph-details/events-graph-details.component';
@@ -60,6 +57,9 @@ import {UserCarouselComponent} from './components/user-carousel/user-carousel.co
 import {MyWorkoutComponent} from './components/my-workout/my-workout.component';
 import {WorkoutGeneratorComponent} from './components/my-workout/workout-generator/workout-generator.component';
 import {WorkoutWalkthroughComponent} from './components/my-workout/workout-walkthrough/workout-walkthrough.component';
+import {FriendItemComponent} from './components/scheduler-container/friend-item/friend-item.component';
+import {MemberItemComponent} from './components/community/member-item/member-item.component';
+import {CommunityService} from './components/community/community.service';
 import {WorkoutService} from './components/workout/workout.service';
 
 @NgModule({

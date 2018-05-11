@@ -1,4 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {WorkoutService} from './workout.service';
 
 @Component({
   selector: 'app-seance',
@@ -7,86 +8,38 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 })
 export class WorkoutComponent implements OnInit, OnDestroy {
 
-
-  mySeances = [
-    {'name' : 'Toutes les séances'},
-    {'name' : 'Fitness'},
-    {'name' : 'Prise de masse'},
-    {'name' : 'Sèche'}
-  ];
-
-  seancesReco: [
-    {
-      titre: 'Dos épais',
-      musclePrincipal: 'Dos',
-      type: 'Volume',
-      description: '',
-      imagePath: 'src/assets/images/seanceIcon.jpg'
-    },
-    {
-      titre: "Prépa Boxe Anglaise",
-      musclePrincipal: 'Dos - bras',
-      type: 'Force - Explosivité',
-      description:'Entrainement visant à developper force et éxplosivité.',
-      imagePath: "src/assets/images/seanceIcon.jpg"
-    },
-    {
-      titre: "Prépa Boxe Anglaise",
-      musclePrincipal: 'Dos - bras',
-      type: 'Force - Explosivité',
-      description:'Entrainement visant à developper force et éxplosivité.',
-      imagePath: "src/assets/images/seanceIcon.jpg"
-    },
-    {
-      titre: "Prépa Boxe Anglaise",
-      musclePrincipal: 'Dos - bras',
-      type: 'Force - Explosivité',
-      description:'Entrainement visant à developper force et éxplosivité.',
-      imagePath: "src/assets/images/seanceIcon.jpg"
-    },
-    {
-      titre: "Prépa Boxe Anglaise",
-      musclePrincipal: 'Dos - bras',
-      type: 'Force - Explosivité',
-      description:'Entrainement visant à developper force et éxplosivité.',
-      imagePath: "src/assets/images/seanceIcon.jpg"
-    },
-    {
-      titre: "Prépa Boxe Anglaise",
-      musclePrincipal: 'Dos - bras',
-      type: 'Force - Explosivité',
-      description:'Entrainement visant à developper force et éxplosivité.',
-      imagePath: "src/assets/images/seanceIcon.jpg"
-    },
-    {
-      titre: "Prépa Boxe Anglaise",
-      musclePrincipal: 'Dos - bras',
-      type: 'Force - Explosivité',
-      description:'Entrainement visant à developper force et éxplosivité.',
-      imagePath: "src/assets/images/seanceIcon.jpg"
-    },
-    {
-      titre: "Prépa Boxe Anglaise",
-      musclePrincipal: 'Dos - bras',
-      type: 'Force - Explosivité',
-      description:'Entrainement visant à developper force et éxplosivité.',
-      imagePath: "src/assets/images/seanceIcon.jpg"
-    }
-    ];
+  mySeances = [];
 
   selectedIndex: number;
+
   select(index: number) {
     this.selectedIndex = index;
   }
 
-  constructor() { }
+  constructor(private workoutService : WorkoutService) { }
 
   ngOnInit() {
     (document.getElementsByClassName('navbar').item(0) as HTMLElement).style.backgroundColor = 'black';
+    this.getTypeList();
+    this.selectedIndex = 0;
   }
 
   ngOnDestroy() {
     (document.getElementsByClassName('navbar').item(0) as HTMLElement).style.backgroundColor = 'transparent';
+  }
+
+  getTypeList(): void {
+    this.mySeances[0] = "All";
+    this.workoutService.getWorkoutTypeList()
+      .subscribe(
+        data => {
+          this.mySeances = this.mySeances.concat(data);
+        },
+        errorCode => console.log(errorCode),
+        () => {
+
+        }
+      );
   }
 
 }

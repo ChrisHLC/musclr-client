@@ -22,4 +22,13 @@ export class WorkoutService {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
     });
   }
+
+  getAll(): Observable<Workout[]> {
+    return this.http.get<Workout[]>(this.springBootServerUrl + 'all');
+  }
+
+  getAllByType(type: String): Observable<Workout[]> {
+    return this.http.get<Workout[]>(this.springBootServerUrl + 'types/' + type);
+  }
+
 }
