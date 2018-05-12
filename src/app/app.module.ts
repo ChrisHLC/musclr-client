@@ -54,9 +54,9 @@ import {UsersGraphDetailsService} from './components/dashboard/graph-display/gra
 import {WorkoutCarouselComponent} from './components/workout-carousel/workout-carousel.component';
 import {WorkoutComponent} from './components/workout/workout.component';
 import {UserCarouselComponent} from './components/user-carousel/user-carousel.component';
-import {MyWorkoutComponent} from './components/my-workout/my-workout.component';
-import {WorkoutGeneratorComponent} from './components/my-workout/workout-generator/workout-generator.component';
-import {WorkoutWalkthroughComponent} from './components/my-workout/workout-walkthrough/workout-walkthrough.component';
+import {WorkoutGeneratorComponent} from './components/workout/workout-generator/workout-generator.component';
+import {WorkoutFormComponent} from './components/workout/workout-form/workout-form.component';
+import {WorkoutRoutineComponent} from './components/workout/workout-routine/workout-routine.component';
 import {FriendItemComponent} from './components/scheduler-container/friend-item/friend-item.component';
 import {MemberItemComponent} from './components/community/member-item/member-item.component';
 import {CommunityService} from './components/community/community.service';
@@ -92,9 +92,9 @@ import {WorkoutService} from './components/workout/workout.service';
     EventsGraphDetailsComponent,
     TownsGraphDetailsComponent,
     GymsGraphDetailsComponent,
-    MyWorkoutComponent,
     WorkoutGeneratorComponent,
-    WorkoutWalkthroughComponent,
+    WorkoutFormComponent,
+    WorkoutRoutineComponent,
     WorkoutCarouselComponent,
     WorkoutComponent,
     UserCarouselComponent,

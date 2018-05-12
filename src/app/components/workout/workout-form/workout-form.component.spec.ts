@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkoutWalkthroughComponent } from './workout-walkthrough.component';
+import { WorkoutFormComponent } from './workout-form.component';
 
-describe('WorkoutWalkthroughComponent', () => {
-  let component: WorkoutWalkthroughComponent;
-  let fixture: ComponentFixture<WorkoutWalkthroughComponent>;
+describe('WorkoutFormComponent', () => {
+  let component: WorkoutFormComponent;
+  let fixture: ComponentFixture<WorkoutFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WorkoutWalkthroughComponent ]
+      declarations: [ WorkoutFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WorkoutWalkthroughComponent);
+    fixture = TestBed.createComponent(WorkoutFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

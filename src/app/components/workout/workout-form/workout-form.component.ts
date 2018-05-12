@@ -1,14 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ExerciseService} from '../../exercises/exercise.service';
-import {WorkoutService} from '../../workout/workout.service';
+import {WorkoutService} from '../workout.service';
 import {WorkoutFormModel} from '../../../models/workout-form.model';
+import {Workout} from '../../../models/workout.model';
 
 @Component({
-  selector: 'app-workout-generator',
-  templateUrl: './workout-generator.component.html',
-  styleUrls: ['./workout-generator.component.scss']
+  selector: 'app-workout-form',
+  templateUrl: './workout-form.component.html',
+  styleUrls: ['./workout-form.component.scss']
 })
-export class WorkoutGeneratorComponent implements OnInit {
+export class WorkoutFormComponent implements OnInit {
 
   exerciseLevelList: string[];
   exerciseTypeList: string[];
@@ -20,8 +21,10 @@ export class WorkoutGeneratorComponent implements OnInit {
     {value: 40, viewValue: '40 mins'}
   ];
 
-
   formModel: WorkoutFormModel;
+
+  @Output() onFormSubmitted: EventEmitter<any> = new EventEmitter<any>();
+
 
   constructor(private exerciseService: ExerciseService, private workoutService: WorkoutService) {
   }
@@ -63,12 +66,12 @@ export class WorkoutGeneratorComponent implements OnInit {
   }
 
   resetForm(): void {
-    console.log('reset');
+    this.formModel = new WorkoutFormModel('', '', +'', '', null, '');
   }
 
   demo(): void {
     // tslint:disable-next-line:max-line-length
-    this.formModel = new WorkoutFormModel('New Workout', this.exerciseLevelList[0], +this.workoutDurations[0].value, this.exerciseTypeList[3], true, this.workoutTypeList[0]);
+    this.formModel = new WorkoutFormModel('New Workout', this.exerciseLevelList[1], +this.workoutDurations[0].value, this.exerciseTypeList[3], true, this.workoutTypeList[1]);
   }
 
   dataLoadOnStart(): void {
@@ -86,6 +89,7 @@ export class WorkoutGeneratorComponent implements OnInit {
     this.workoutService.generateWorkout(this.formModel).subscribe(
       data => {
         console.log(data);
+        this.onFormSubmitted.emit(data);
       },
       errorCode => console.log(errorCode),
       () => {

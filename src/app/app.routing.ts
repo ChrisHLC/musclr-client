@@ -17,7 +17,7 @@ import {EventsGraphDetailsComponent} from './components/dashboard/graph-display/
 import {TownsGraphDetailsComponent} from './components/dashboard/graph-display/graph-drawer/graph-details/towns-graph-details/towns-graph-details.component';
 import {GymsGraphDetailsComponent} from './components/dashboard/graph-display/graph-drawer/graph-details/gyms-graph-details/gyms-graph-details.component';
 /* tslint:enable:max-line-length */
-import {MyWorkoutComponent} from './components/my-workout/my-workout.component';
+import {WorkoutGeneratorComponent} from './components/workout/workout-generator/workout-generator.component';
 import {WorkoutCarouselComponent} from './components/workout-carousel/workout-carousel.component';
 import {WorkoutComponent} from './components/workout/workout.component';
 
@@ -34,7 +34,7 @@ const routes: Routes = [
   },
   {path: 'community', component: CommunityComponent},
   {path: 'exercises', component: ExercisesComponent},
-  {path: 'my-workout', component: MyWorkoutComponent},
+  {path: 'workout-generator', component: WorkoutGeneratorComponent},
   {path: 'login', component: LoginComponent},
   {path: 'news', component: NewsComponent},
   {path: 'profile', component: ProfileComponent},
