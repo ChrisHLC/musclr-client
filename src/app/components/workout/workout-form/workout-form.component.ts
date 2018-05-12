@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {ExerciseService} from '../../exercises/exercise.service';
-import {WorkoutService} from '../../workout/workout.service';
+import {WorkoutService} from '../workout.service';
 import {WorkoutFormModel} from '../../../models/workout-form.model';
 
 @Component({
-  selector: 'app-workout-generator',
-  templateUrl: './workout-generator.component.html',
-  styleUrls: ['./workout-generator.component.scss']
+  selector: 'app-workout-form',
+  templateUrl: './workout-form.component.html',
+  styleUrls: ['./workout-form.component.scss']
 })
-export class WorkoutGeneratorComponent implements OnInit {
+export class WorkoutFormComponent implements OnInit {
 
   exerciseLevelList: string[];
   exerciseTypeList: string[];
@@ -19,7 +19,6 @@ export class WorkoutGeneratorComponent implements OnInit {
     {value: 30, viewValue: '30 mins'},
     {value: 40, viewValue: '40 mins'}
   ];
-
 
   formModel: WorkoutFormModel;
 
@@ -63,7 +62,7 @@ export class WorkoutGeneratorComponent implements OnInit {
   }
 
   resetForm(): void {
-    console.log('reset');
+    this.formModel = new WorkoutFormModel('', '', +'', '', null, '');
   }
 
   demo(): void {
@@ -86,6 +85,8 @@ export class WorkoutGeneratorComponent implements OnInit {
     this.workoutService.generateWorkout(this.formModel).subscribe(
       data => {
         console.log(data);
+
+
       },
       errorCode => console.log(errorCode),
       () => {

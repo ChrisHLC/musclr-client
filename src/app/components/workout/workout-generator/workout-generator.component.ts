@@ -2,10 +2,10 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-workout',
-  templateUrl: './my-workout.component.html',
-  styleUrls: ['./my-workout.component.scss']
+  templateUrl: './workout-generator.component.html',
+  styleUrls: ['./workout-generator.component.scss']
 })
-export class MyWorkoutComponent implements OnInit, OnDestroy {
+export class WorkoutGeneratorComponent implements OnInit, OnDestroy {
 
   constructor() { }
 
