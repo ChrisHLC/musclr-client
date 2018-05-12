@@ -1,4 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Workout} from '../../../models/workout.model';
 
 @Component({
   selector: 'app-workout',
@@ -7,7 +8,16 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 })
 export class WorkoutGeneratorComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  workout: Workout;
+
+  constructor() {
+  }
+
+  getGeneratedWorkout(data: any): void {
+    console.log(data);
+    this.workout = data;
+  }
+
 
   ngOnInit() {
     (document.getElementsByClassName('navbar').item(0) as HTMLElement).style.backgroundColor = 'black';

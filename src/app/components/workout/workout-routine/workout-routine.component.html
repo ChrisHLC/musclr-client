@@ -1,12 +1,12 @@
 <div>
 
-  <div class="row">
-    <div class="col-md-3">
+  <div class="row single-news" *ngFor="let routine of workout.routines">
+    <div class="col-md-5">
 
       <!--Image-->
       <div mdbRippleRadius class="view overlay ">
-        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(50).jpg"
-             alt="Minor sample post image" class="small-image">
+        <iframe [src]="(routine.exercise.link+'?showinfo=0') | safe" frameborder="0" allowfullscreen></iframe>
+
         <a>
           <div class="mask"></div>
         </a>
@@ -14,11 +14,11 @@
     </div>
 
     <!--Excerpt-->
-    <div class="col-md-9">
-      <p><strong class="dark-grey-text">26/02/2016</strong></p>
-      <a>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, sint.
-        <i class="fa fa-angle-right"></i>
-      </a>
+    <div class="col-md-7">
+      <p><strong class="dark-grey-text">{{routine.exercise.name}}</strong></p>
+      <a> {{routine.exercise.description}}</a>
+      <div> x {{routine.repetition}}</div>
+      <div>Rest : {{workout.pause}} seconds </div>
     </div>
 
   </div>
