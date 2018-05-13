@@ -20,15 +20,38 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {FooterComponent} from './components/navigation/footer/footer.component';
 import {NewsComponent} from './components/news/news.component';
 import {
+  MatAutocompleteModule,
   MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
   MatIconModule,
   MatInputModule,
-  MatRadioModule,
-  MatSidenavModule,
-  MatSnackBarModule,
   MatFormFieldModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
   MatSelectModule,
-  MatSlideToggleModule
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatStepperModule,
 } from '@angular/material';
 import {CommunityComponent} from './components/community/community.component';
 import {SchedulerService} from './components/scheduler-container/scheduler.service';
@@ -61,6 +84,13 @@ import {FriendItemComponent} from './components/scheduler-container/friend-item/
 import {MemberItemComponent} from './components/community/member-item/member-item.component';
 import {CommunityService} from './components/community/community.service';
 import {WorkoutService} from './components/workout/workout.service';
+import {ChatComponent} from './components/chat/chat.component';
+import {ChatService} from './components/chat/chat.service';
+import {RelationshipService} from './components/chat/relationship.service';
+import {ChatFriendsListComponent} from './components/chat/chat-friends-list/chat-friends-list.component';
+import {ChatMessageFormComponent} from './components/chat/chat-message-form/chat-message-form.component';
+import {ChatMessageItemComponent} from './components/chat/chat-message-item/chat-message-item.component';
+import {ChatMessagesListComponent} from './components/chat/chat-messages-list/chat-messages-list.component';
 import {UserService} from './services/user.service';
 
 @NgModule({
@@ -100,6 +130,11 @@ import {UserService} from './services/user.service';
     WorkoutComponent,
     UserCarouselComponent,
     MemberItemComponent,
+    ChatComponent,
+    ChatFriendsListComponent,
+    ChatMessageFormComponent,
+    ChatMessageItemComponent,
+    ChatMessagesListComponent,
   ],
   imports: [
     NguCarouselModule,
@@ -109,16 +144,38 @@ import {UserService} from './services/user.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSidenavModule,
-    MatRadioModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatSlideToggleModule,
-    MatRadioModule,
+    MatAutocompleteModule,
     MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
     MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
     MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
     MDBBootstrapModule.forRoot()
   ],
   schemas: [
@@ -134,6 +191,8 @@ import {UserService} from './services/user.service';
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     UsersGraphDetailsService,
     WorkoutService,
+    ChatService,
+    RelationshipService
     UserService,
   ],
   bootstrap: [AppComponent]

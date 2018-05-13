@@ -21,7 +21,7 @@ export class ExercisesComponent implements OnInit, OnDestroy {
   buttonDisabled: boolean;
 
 
-  constructor(private exerciseService: ExerciseService, public sanitizer: DomSanitizer) {
+  constructor(private exerciseService: ExerciseService, private sanitizer: DomSanitizer) {
     this.buttonDisabled = false;
   }
 
