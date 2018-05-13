@@ -1,0 +1,22 @@
+<section id="chat" class="pt-5 mt-5 pb-3">
+  <div class="container">
+    <mat-sidenav-container class="chat-container">
+      <mat-sidenav #sidenav mode="side" opened="true" class="friends-container">
+        <app-chat-friends-list [user]="user" (onFriendSelected)="friendWasSelected($event)"></app-chat-friends-list>
+      </mat-sidenav>
+
+      <mat-sidenav-content class="messages-container">
+        <div *ngIf="friend" class="messages-list">
+          <app-chat-messages-list [friend]="friend"></app-chat-messages-list>
+        </div>
+
+        <div *ngIf="friend" class="message-form">
+          <app-chat-message-form [friend]="friend"></app-chat-message-form>
+        </div>
+      </mat-sidenav-content>
+
+    </mat-sidenav-container>
+  </div>
+</section>
+
+

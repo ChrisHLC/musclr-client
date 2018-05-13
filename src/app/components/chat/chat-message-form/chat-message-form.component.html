@@ -1,0 +1,11 @@
+<form (ngSubmit)="sendMessage()" style="position: fixed; bottom: 0;">
+
+  <mat-form-field style="width: 70vw;">
+    <textarea placeholder="Tapez ici votre message, puis cliquez sur 'Envoyer'. " matInput matTextareaAutosize
+              matAutosizeMinRows="1" type="text" name="messageToSend"
+              [(ngModel)]="messageToSend"></textarea>
+  </mat-form-field>
+
+  <button type="submit" mat-button style="font-weight:bold;">Envoyer</button>
+</form>
+

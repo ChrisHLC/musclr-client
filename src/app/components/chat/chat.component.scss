@@ -1,0 +1,53 @@
+#chat {
+
+  margin-top: 70px;
+
+  .container {
+    max-width: 80%;
+  }
+
+  .alignright {
+    display: block;
+    float: right;
+    margin-left: 1em;
+  }
+
+  .alignleft {
+    display: block;
+    float: left;
+    margin-right: 1em;
+  }
+
+}
+
+.chat-container {
+  height: 94vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.messages-container {
+  margin-right: 0px;
+  height: 100vh;
+}
+
+.friends-container {
+  width: 15vw;
+  height: 100vh;
+  border-right: 1px solid grey;
+}
+
+.message-form {
+  position: absolute;
+  /*bottom: 0px;*/
+  margin-top: 10px !important;
+  /*margin-bottom: 0px !important;*/
+  margin-left: 20px;
+}
+
+.messages-list {
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}

@@ -20,6 +20,7 @@ import {GymsGraphDetailsComponent} from './components/dashboard/graph-display/gr
 import {WorkoutGeneratorComponent} from './components/workout/workout-generator/workout-generator.component';
 import {WorkoutCarouselComponent} from './components/workout-carousel/workout-carousel.component';
 import {WorkoutComponent} from './components/workout/workout.component';
+import {ChatComponent} from './components/chat/chat.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path: 'workout-generator', component: WorkoutGeneratorComponent},
   {path: 'login', component: LoginComponent},
   {path: 'news', component: NewsComponent},
+  {path: 'chat', component: ChatComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'scheduler', component: SchedulerContainerComponent, canActivate: [AuthGuard]},
   {path: 'profile', component: ProfileComponent},
