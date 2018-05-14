@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {WorkoutService} from './workout.service';
+import { Workout } from '../../models/workout.model';
 
 @Component({
   selector: 'app-seance',
@@ -8,20 +9,51 @@ import {WorkoutService} from './workout.service';
 })
 export class WorkoutComponent implements OnInit, OnDestroy {
 
-  mySeances = [];
+  typeList =  [];
+  typeSelected: string; 
+  selectedTypeIndex: number;
+  workoutList: Workout[];
+  show = 6;
+  buttonDisabled: boolean;
 
-  selectedIndex: number;
-
-  select(index: number) {
-    this.selectedIndex = index;
+  select(type: string, index: number): void {
+    if(type == "ALL"){
+      type = "all";
+    }
+    this.selectedTypeIndex = index;
+    this.typeSelected = type;
+    this.getWorkoutList(type);
+    this.show = 6;
+    this.buttonDisabled = false;
   }
 
-  constructor(private workoutService : WorkoutService) { }
+  getWorkoutList(type: string): void {
+    this.workoutService.getWorkoutListByType(type)
+      .subscribe(
+        data => {
+          this.workoutList = data;
+        },
+        errorCode => console.log(errorCode),
+        () => {
+
+        }
+      );
+  }
+
+  showMore(): void {
+    this.show += 6;
+    if (this.show >= this.workoutList.length) {
+      this.buttonDisabled = true;
+    }
+  }
+
+  constructor(private workoutService : WorkoutService) {
+    this.buttonDisabled = false;
+   }
 
   ngOnInit() {
     (document.getElementsByClassName('navbar').item(0) as HTMLElement).style.backgroundColor = 'black';
     this.getTypeList();
-    this.selectedIndex = 0;
   }
 
   ngOnDestroy() {
@@ -29,17 +61,21 @@ export class WorkoutComponent implements OnInit, OnDestroy {
   }
 
   getTypeList(): void {
-    this.mySeances[0] = "All";
+    this.typeList[0] = "ALL";
     this.workoutService.getWorkoutTypeList()
       .subscribe(
         data => {
-          this.mySeances = this.mySeances.concat(data);
+          this.typeList = this.typeList.concat(data);
         },
         errorCode => console.log(errorCode),
         () => {
-
+          this.select(this.typeList[0], 0);
         }
       );
+  }
+
+  getWorkoutListByType(type: string){
+    return this.workoutService.getWorkoutListByType(type);
   }
 
 }
