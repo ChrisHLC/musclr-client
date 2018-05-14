@@ -14,4 +14,8 @@ export class CommunityService {
   loadUsers() {
     return this.httpClient.get(this.usersUrl + 'all');
   }
+
+  loadCarouselUsers() {
+    return this.httpClient.get(this.usersUrl + 'carousel');
+  }
 }
