@@ -23,11 +23,7 @@ export class WorkoutService {
     });
   }
 
-  getAll(): Observable<Workout[]> {
-    return this.http.get<Workout[]>(this.springBootServerUrl + 'all');
-  }
-
-  getAllByType(type: String): Observable<Workout[]> {
+  getWorkoutListByType(type: String): Observable<Workout[]> {
     return this.http.get<Workout[]>(this.springBootServerUrl + 'types/' + type);
   }
 
