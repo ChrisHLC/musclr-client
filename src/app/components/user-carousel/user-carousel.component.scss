@@ -31,80 +31,29 @@
   text-align: center;
 }
 
-  //<Carousel Cards CSS>
-
-.narrower{
-  -webkit-box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 5px 0px, rgba(0, 0, 0, 0.117647) 0px 2px 10px 0px;
-  background-clip: border-box;
-  background-color: rgb(255, 255, 255);
-  border-bottom-color: rgb(33, 37, 41);
+.cardContainer{
+  margin-top: 5em;
+  margin-right: 2em;
+  height: 20em;
+  width: 15em;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  border-bottom-style: none;
-  border-bottom-width: 0px;
-  border-image-outset: 0px;
-  border-image-repeat: stretch;
-  border-image-slice: 100%;
-  border-image-source: none;
-  border-image-width: 1;
-  border-left-color: rgb(33, 37, 41);
-  border-left-style: none;
-  border-left-width: 0px;
-  border-right-color: rgb(33, 37, 41);
-  border-right-style: none;
-  border-right-width: 0px;
-  border-top-color: rgb(33, 37, 41);
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  border-top-style: none;
-  border-top-width: 0px;
   box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 5px 0px, rgba(0, 0, 0, 0.117647) 0px 2px 10px 0px;
   box-sizing: border-box;
-  color: rgb(33, 37, 41);
-  display: flex;
-  flex-direction: column;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-weight: normal;
-  height: 454px;
-  line-height: 24px;
-  margin-bottom: 24px;
-  margin-top: 20px;
-  min-width: 0px;
-  position: relative;
-  text-align: center;
-  width: 350px;
-  word-wrap: break-word;
+  margin-bottom: 1em;
 }
 
-.overlay{
-  -webkit-box-shadow: rgba(0, 0, 0, 0.180392) 0px 5px 11px 0px, rgba(0, 0, 0, 0.14902) 0px 4px 15px 0px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.180392) 0px 5px 11px 0px, rgba(0, 0, 0, 0.14902) 0px 4px 15px 0px;
+.cardPictureCircle{
+  border-radius: 50%;
+  height: 5em;
+  width: 5em;
+  margin-top: -2em;
+  margin-left: 1em;
+  box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 5px 0px, rgba(0, 0, 0, 0.117647) 0px 2px 10px 0px;
   box-sizing: border-box;
-  color: rgb(33, 37, 41);
-  cursor: default;
-  display: block;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-weight: normal;
-  height: 214px;
-  line-height: 24px;
-  margin-left: 14px;
-  margin-right: 14px;
-  margin-top: -20px;
-  overflow-x: visible;
-  overflow-y: visible;
-  position: relative;
-  text-align: center;
-  width: 322px;
-  word-wrap: break-word;
 }
-
-//</Carousel Cards CSS>
 
 .carousselCards{
   display: inline-flex;
