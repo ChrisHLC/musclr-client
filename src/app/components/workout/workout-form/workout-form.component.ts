@@ -3,6 +3,7 @@ import {ExerciseService} from '../../exercises/exercise.service';
 import {WorkoutService} from '../workout.service';
 import {WorkoutFormModel} from '../../../models/workout-form.model';
 import {Workout} from '../../../models/workout.model';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-workout-form',
@@ -23,10 +24,12 @@ export class WorkoutFormComponent implements OnInit {
 
   formModel: WorkoutFormModel;
 
+  creatorId = this.authService.getId();
+
   @Output() onFormSubmitted: EventEmitter<any> = new EventEmitter<any>();
 
 
-  constructor(private exerciseService: ExerciseService, private workoutService: WorkoutService) {
+  constructor(private exerciseService: ExerciseService, private workoutService: WorkoutService, private authService: AuthService) {
   }
 
   getExerciseLevels(): void {
@@ -66,19 +69,19 @@ export class WorkoutFormComponent implements OnInit {
   }
 
   resetForm(): void {
-    this.formModel = new WorkoutFormModel('', '', +'', '', null, '');
+    this.formModel = new WorkoutFormModel('', '', '', +'', '', null, '');
   }
 
   demo(): void {
     // tslint:disable-next-line:max-line-length
-    this.formModel = new WorkoutFormModel('New Workout', this.exerciseLevelList[1], +this.workoutDurations[0].value, this.exerciseTypeList[3], true, this.workoutTypeList[1]);
+    this.formModel = new WorkoutFormModel(this.creatorId, 'New Workout', this.exerciseLevelList[1], +this.workoutDurations[0].value, this.exerciseTypeList[3], true, this.workoutTypeList[1]);
   }
 
   dataLoadOnStart(): void {
     this.getExerciseLevels();
     this.getExerciseTypes();
     this.getWorkoutTypes();
-    this.formModel = new WorkoutFormModel('', '', +'', '', null, '');
+    this.formModel = new WorkoutFormModel('', '', '', +'', '', null, '');
   }
 
   ngOnInit() {

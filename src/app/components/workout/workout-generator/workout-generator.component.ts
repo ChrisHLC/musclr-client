@@ -14,7 +14,6 @@ export class WorkoutGeneratorComponent implements OnInit, OnDestroy {
   }
 
   getGeneratedWorkout(data: any): void {
-    console.log(data);
     this.workout = data;
   }
 

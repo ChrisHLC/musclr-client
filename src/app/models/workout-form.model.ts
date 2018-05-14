@@ -1,6 +1,7 @@
 export class WorkoutFormModel {
 
   constructor(
+    public creatorId: string,
     public name: string,
     public level: string,
     public duration: number,
