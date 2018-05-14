@@ -1,0 +1,28 @@
+<div>
+
+  <div class="row single-news" *ngFor="let routine of workout.routines">
+    <div class="col-md-5">
+
+      <!--Image-->
+      <div mdbRippleRadius class="view overlay ">
+        <iframe [src]="(routine.exercise.link+'?showinfo=0') | safe" frameborder="0" allowfullscreen></iframe>
+
+        <a>
+          <div class="mask"></div>
+        </a>
+      </div>
+    </div>
+
+    <!--Excerpt-->
+    <div class="col-md-7">
+      <p><strong class="dark-grey-text">{{routine.exercise.name}}</strong></p>
+      <a> {{routine.exercise.description}}</a>
+      <div> x {{routine.repetition}}</div>
+      <div>Rest : {{workout.pause}} seconds </div>
+    </div>
+
+  </div>
+</div>
+<!--/Small news-->
+<hr>
+<!--Small news-->

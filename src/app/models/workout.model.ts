@@ -6,7 +6,9 @@ export class Workout {
     public name: string,
     public routines: Routine[],
     public pause: number,
-    public type: string
+    public type: string,
+    public createdBy: string,
+    public createdOn: Date,
   ) {
   }
 

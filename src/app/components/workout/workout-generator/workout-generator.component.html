@@ -1,4 +1,4 @@
-<section id="my-workout" class="pt-5 mt-5 pb-3">
+<section id="workout-generator" class="pt-5 mt-5 pb-3">
   <div class="container">
     <h2 class="mb-4">Generate Your Workout</h2>
 
@@ -9,17 +9,17 @@
     <div class="row">
 
       <!--Grid column-->
-      <div class="col-lg-6 col-md-12">
+      <div  [ngClass]="(workout)? 'col-lg-5':'col-lg-12'">
 
-        <app-workout-generator></app-workout-generator>
+        <app-workout-form (onFormSubmitted)="getGeneratedWorkout($event)"></app-workout-form>
 
       </div>
       <!--Grid column-->
 
       <!--Grid column-->
-      <div class="col-lg-6 col-md-12">
+      <div *ngIf="workout" class="col-lg-7 col-md-12">
 
-        <app-workout-walkthrough></app-workout-walkthrough>
+        <app-workout-routine [workout]="workout"></app-workout-routine>
 
       </div>
       <!--Grid column-->
