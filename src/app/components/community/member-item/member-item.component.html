@@ -2,14 +2,14 @@
 <div class="card card-personal">
 
   <!--Card image-->
-  <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(29).jpg" alt="Card image cap">
+  <img class="img-fluid" src="assets\images\persons\{{user.image}}" alt="Card image cap">
   <!--Card image-->
 
   <!--Card content-->
   <div class="card-body">
     <!--Title-->
     <a><h4 class="card-title title-one">{{user.username}}</h4></a>
-    <p class="card-meta">Inscrite en 2013</p>
+    <p class="card-meta">{{getAge()}} ans</p>
 
     <!--Text-->
     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, fuga?</p>
