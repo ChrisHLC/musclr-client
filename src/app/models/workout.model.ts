@@ -8,7 +8,7 @@ export class Workout {
     public pause: number,
     public type: string,
     public createdBy: string,
-    public createdOn: Date,
+    public createdOn: Date
   ) {
   }
 

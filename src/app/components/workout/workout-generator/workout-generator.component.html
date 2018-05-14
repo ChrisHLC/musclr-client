@@ -1,9 +1,16 @@
 <section id="workout-generator" class="pt-5 mt-5 pb-3">
   <div class="container">
-    <h2 class="mb-4">Generate Your Workout</h2>
+    <div class="row">
+      <div class="col-10"><h2 class="mb-4">Generate Your Workout</h2>
 
-    <!--Section description-->
-    <p>Answer the following questions for your personalized workout</p>
+        <!--Section description-->
+        <p>Answer the following questions for your personalized workout</p></div>
+      <div class="col-2" *ngIf="workout">
+        <button type="button" class="btn btn-success waves-light" mdbWavesEffect (click)="sendWorkoutToPlanning()">Save and add to my planning</button>
+      </div>
+
+    </div>
+
 
     <!--Grid row-->
     <div class="row">
