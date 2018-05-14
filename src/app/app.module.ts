@@ -53,7 +53,7 @@ import {UsersGraphDetailsService} from './components/dashboard/graph-display/gra
 /* tslint:enable:max-line-length */
 import {WorkoutCarouselComponent} from './components/workout-carousel/workout-carousel.component';
 import {WorkoutComponent} from './components/workout/workout.component';
-import {UserCarouselComponent} from './components/user-carousel/user-carousel.component';
+import {UserCarouselComponent} from './components/community/user-carousel/user-carousel.component';
 import {WorkoutGeneratorComponent} from './components/workout/workout-generator/workout-generator.component';
 import {WorkoutFormComponent} from './components/workout/workout-form/workout-form.component';
 import {WorkoutRoutineComponent} from './components/workout/workout-routine/workout-routine.component';
