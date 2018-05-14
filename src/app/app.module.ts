@@ -61,6 +61,7 @@ import {FriendItemComponent} from './components/scheduler-container/friend-item/
 import {MemberItemComponent} from './components/community/member-item/member-item.component';
 import {CommunityService} from './components/community/community.service';
 import {WorkoutService} from './components/workout/workout.service';
+import {UserService} from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -132,7 +133,8 @@ import {WorkoutService} from './components/workout/workout.service';
     CommunityService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     UsersGraphDetailsService,
-    WorkoutService
+    WorkoutService,
+    UserService,
   ],
   bootstrap: [AppComponent]
 })
