@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../../models/user.model';
 import {MatSnackBar} from '@angular/material';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-member-item',
@@ -28,4 +29,8 @@ export class MemberItemComponent implements OnInit {
     });
   }
 
+
+  getAge(): number {
+    return moment().diff(this.user.birthday, 'years');
+  }
 }
