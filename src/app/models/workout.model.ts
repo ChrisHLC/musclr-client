@@ -1,5 +1,6 @@
 import {Routine} from './routine.model';
 import {User} from './user.model';
+import {Rating} from './rating.model';
 
 export class Workout {
   constructor(
@@ -10,6 +11,7 @@ export class Workout {
     public type: string,
     public createdBy: User,
     public createdOn: Date,
+    public ratings: Rating[]
   ) {
   }
 

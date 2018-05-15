@@ -62,6 +62,7 @@ import {MemberItemComponent} from './components/community/member-item/member-ite
 import {CommunityService} from './components/community/community.service';
 import {WorkoutService} from './components/workout/workout.service';
 import {UserService} from './services/user.service';
+import { WorkoutDivComponent } from './components/workout/workout-div/workout-div.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import {UserService} from './services/user.service';
     WorkoutComponent,
     UserCarouselComponent,
     MemberItemComponent,
+    WorkoutDivComponent,
   ],
   imports: [
     NguCarouselModule,
