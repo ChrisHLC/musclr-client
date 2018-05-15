@@ -10,6 +10,7 @@ export class Link implements d3.SimulationLinkDatum<Node> {
   strength: number;
   label: string;
   directed: boolean;
+  color: string = "#E5E5E5";
 
 
   constructor(source, target, label, directed) {

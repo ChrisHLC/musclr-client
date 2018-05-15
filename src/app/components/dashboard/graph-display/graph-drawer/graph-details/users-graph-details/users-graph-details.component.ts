@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UsersGraphDetailsService } from './users-graph-details.service';
 import { Link, Node } from '../../../d3/models';
+import * as _ from "lodash";
 
 @Component({
   selector: 'app-users-graph-details',
@@ -13,17 +14,30 @@ export class UsersGraphDetailsComponent implements OnInit {
   public links;
 
   public nodeButtons = [{ id: 'level', label: 'Niveau' }, { id: 'role', label: 'Rôle' }];
-  public radioModel: string = "";
+  public radioModelNode: string = "";
+
+  public nodeSizeButtons = [{ id: 'activity', label: 'Activités' },
+  { id: 'Friend', label: 'Ami(e)s' },
+  { id: 'events', label: 'Evénements' },
+  { id: 'ranking', label: 'Notes' }];
+  public radioModelNodeSize: string = "";
+
+  public linkButtons = [{ id: 'Coach', label: 'Coach' }, { id: 'Friend', label: 'Ami(e)s' }];
+  public checkModelLink: any = { Coach: false, Friend: false };
+
+  public linkSizeButtons = [
+    { id: 'events', label: 'Evénements' },
+    { id: 'proximity', label: 'Proximité' }];
+  public radioModelLinkSize: string = "";
 
   constructor(private userGraphService: UsersGraphDetailsService) { }
 
   ngOnInit() {
-    // this.nodes = this.userGraphService.getNodes();
   }
 
   nodeColor(data: string) {
     this.nodes = this.userGraphService.getNodes();
-    if (this.radioModel === 'level') {
+    if (this.radioModelNode === 'level') {
       this.nodes.forEach(function (node: Node) {
         switch (node.level) {
           case 'Gold':
@@ -37,9 +51,8 @@ export class UsersGraphDetailsComponent implements OnInit {
             break;
         }
       });
-      this.userGraphService.setNodes(this.nodes);
     }
-    if (this.radioModel === 'role') {
+    if (this.radioModelNode === 'role') {
       this.nodes.forEach(function (node: Node) {
         switch (node.role) {
           case 'MusclR':
@@ -50,8 +63,39 @@ export class UsersGraphDetailsComponent implements OnInit {
             break;
         }
       });
-      this.userGraphService.setNodes(this.nodes);
     }
+    this.userGraphService.setNodes(this.nodes);
+  }
 
+  nodeSize(data: string) {
+    let self = this;
+    this.links = this.userGraphService.getLinks();
+    this.nodes = this.userGraphService.getNodes();
+    let friendLink = _.filter(this.links, ['label', data]);
+    let list = _.merge(_.groupBy(friendLink, 'source.id'), _.groupBy(friendLink, 'target.id'));
+    _.forEach(list, function (value, key) {
+      _.set((_.filter(self.nodes, { 'id': Number(key) })), '[0].normal', (value.length / 15));
+    })
+  }
+
+  linkColor(data: string) {
+    this.links = this.userGraphService.getLinks();
+    if (this.checkModelLink[data] === true) {
+      this.links.forEach(function (link: Link) {
+        if (data === link.label) {
+          switch (link.label) {
+            case 'Coach':
+              link.color = '#2E86C1';
+              break;
+            case 'Friend':
+              link.color = '#F40D45';
+              break;
+          }
+        } else {
+          link.color = "#E5E5E5"
+        }
+      });
+      this.userGraphService.setLinks(this.links);
+    }
   }
 }
