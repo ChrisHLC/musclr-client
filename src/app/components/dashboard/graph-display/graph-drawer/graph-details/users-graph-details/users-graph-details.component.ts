@@ -16,9 +16,9 @@ export class UsersGraphDetailsComponent implements OnInit {
   public nodeButtons = [{ id: 'level', label: 'Niveau' }, { id: 'role', label: 'Rôle' }];
   public radioModelNode: string = "";
 
-  public nodeSizeButtons = [{ id: 'activity', label: 'Activités' },
+  public nodeSizeButtons = [{ id: 'Create', label: 'Activités' },
   { id: 'Friend', label: 'Ami(e)s' },
-  { id: 'events', label: 'Evénements' },
+  { id: 'Participate', label: 'Evénements' },
   { id: 'ranking', label: 'Notes' }];
   public radioModelNodeSize: string = "";
 
@@ -71,10 +71,10 @@ export class UsersGraphDetailsComponent implements OnInit {
     let self = this;
     this.links = this.userGraphService.getLinks();
     this.nodes = this.userGraphService.getNodes();
-    let friendLink = _.filter(this.links, ['label', data]);
-    let list = _.merge(_.groupBy(friendLink, 'source.id'), _.groupBy(friendLink, 'target.id'));
+    let linkList = _.filter(this.links, ['label', data]);
+    let list = _.merge(_.groupBy(linkList, 'source.id'), _.groupBy(linkList, 'target.id'));
     _.forEach(list, function (value, key) {
-      _.set((_.filter(self.nodes, { 'id': Number(key) })), '[0].normal', (value.length / 15));
+      _.set((_.filter((_.filter(self.nodes, ['group', 'users'])), { 'id': Number(key) })), '[0].normal', (value.length / 15));
     })
   }
 
@@ -97,5 +97,11 @@ export class UsersGraphDetailsComponent implements OnInit {
       });
       this.userGraphService.setLinks(this.links);
     }
+  }
+
+  linkSize(data: string){
+    let self = this;
+    this.links = this.userGraphService.getLinks();
+    this.nodes = this.userGraphService.getNodes();
   }
 }

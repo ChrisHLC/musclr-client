@@ -92,6 +92,7 @@ import {ChatMessageFormComponent} from './components/chat/chat-message-form/chat
 import {ChatMessageItemComponent} from './components/chat/chat-message-item/chat-message-item.component';
 import {ChatMessagesListComponent} from './components/chat/chat-messages-list/chat-messages-list.component';
 import {UserService} from './services/user.service';
+import { GraphLegendComponent } from './components/dashboard/graph-display/graph-legend/graph-legend.component';
 
 @NgModule({
   declarations: [
@@ -135,6 +136,7 @@ import {UserService} from './services/user.service';
     ChatMessageFormComponent,
     ChatMessageItemComponent,
     ChatMessagesListComponent,
+    GraphLegendComponent,
   ],
   imports: [
     NguCarouselModule,
