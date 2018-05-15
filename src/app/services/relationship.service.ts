@@ -1,12 +1,12 @@
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {Relationship} from '../../models/relationship.model';
 import {Injectable} from '@angular/core';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {User} from '../../models/user.model';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../environments/environment';
+import {User} from '../models/user.model';
+import {Relationship} from '../models/relationship.model';
 
 @Injectable()
 export class RelationshipService {
@@ -16,8 +16,8 @@ export class RelationshipService {
   constructor(private http: HttpClient) {
   }
 
-  getFriendsList(username: string): Observable<User[]> {
-    return this.http.get<User[]>(this.relationshipUrl + 'friendsList/' + username);
+  getFriendsList(id: string): Observable<User[]> {
+    return this.http.get<User[]>(this.relationshipUrl + 'friendsList/' + id);
   }
 
   sendFriendRequest(body: Object): Observable<Relationship> {

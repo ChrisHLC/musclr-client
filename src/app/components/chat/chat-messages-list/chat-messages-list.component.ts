@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ChatService} from '../chat.service';
+import {ChatService} from '../../../services/chat.service';
 import {User} from '../../../models/user.model';
 import {Observable} from 'rxjs/Observable';
 import {Chat} from '../../../models/chat.model';
@@ -12,7 +12,7 @@ import {Chat} from '../../../models/chat.model';
 export class ChatMessagesListComponent implements OnInit {
 
   @Input() friend: User;
-  // user: User = this.userService.getUserConnected();
+  @Input() user: User;
   messagesList: Chat[];
 
   constructor(private chatService: ChatService) {
@@ -28,7 +28,7 @@ export class ChatMessagesListComponent implements OnInit {
   }
 
   getMessagesList() {
-    this.chatService.getMessages('Romeo', this.friend.username).subscribe(
+    this.chatService.getMessages(this.user._id, this.friend._id).subscribe(
       data => {
         this.messagesList = data;
       },

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ChatService} from '../chat.service';
+import {ChatService} from '../../../services/chat.service';
 import {User} from '../../../models/user.model';
 
 @Component({
@@ -10,7 +10,7 @@ import {User} from '../../../models/user.model';
 export class ChatMessageFormComponent implements OnInit {
   messageToSend: string;
   @Input() friend: User;
-  // user: User = this.userService.getUserConnected();
+  @Input() user: User;
 
   inProgress = false;
 
@@ -22,7 +22,7 @@ export class ChatMessageFormComponent implements OnInit {
 
   sendMessage() {
     this.inProgress = true;
-    this.chatService.sendMessage('Romeo', this.friend.username, this.messageToSend).subscribe(
+    this.chatService.sendMessage(this.user._id, this.friend._id, this.messageToSend).subscribe(
       data => {
         console.log(data);
       },

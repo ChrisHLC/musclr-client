@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AuthService} from '../auth/auth.service';
 import {User} from '../../models/user.model';
+import {UserService} from '../../services/user.service';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-chat',
@@ -9,10 +10,10 @@ import {User} from '../../models/user.model';
 })
 export class ChatComponent implements OnInit, OnDestroy {
 
-  user: User;
+  user : User;
   friend: User;
 
-  constructor(private authService: AuthService) {
+  constructor(private userService: UserService, private authService: AuthService) {
   }
 
   friendWasSelected(friend: User) {
@@ -21,6 +22,9 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     (document.getElementsByClassName('navbar').item(0) as HTMLElement).style.backgroundColor = 'black';
+    this.userService.getConnectedUserInfo(this.authService.getId()).subscribe(data => {
+      this.user = data[0];
+    });
   }
 
   ngOnDestroy() {

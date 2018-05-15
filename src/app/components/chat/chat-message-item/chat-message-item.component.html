@@ -1,4 +1,4 @@
-<div style="padding-left: 25px;" *ngIf="message.user_from_name == friend.username">
+<div style="padding-left: 25px;" *ngIf="message.user_from_id == friend._id">
   <!--<span *ngIf="message.user_from_id == friend.user_id">-->
   <!--<img *ngIf="message.user_from_id == friend.user_id" matListAvatar [src]="friend.image_path" alt="toto" style=""/>-->
   <!--<img [src]="user.image_path" alt="Mountain View" style="width:30px;height:30px;">-->
@@ -6,7 +6,7 @@
   <span *ngIf="message"
         style="border: solid 1px transparent;  border-radius: 5px; background-color: lightgreen; padding: 5px;">{{message.message}}</span>
 </div>
-<div style="position: fixed; right: 0; padding-right: 130px;" *ngIf="message.user_from_name != friend.username">
+<div style="position: fixed; right: 0; padding-right: 130px;" *ngIf="message.user_from_id != friend._id">
   <!--<span *ngIf="message.user_from_id == friend.user_id">-->
   <!--<img *ngIf="message.user_from_id == friend.user_id" matListAvatar [src]="friend.image_path" alt="toto" style=""/>-->
   <!--<img [src]="user.image_path" alt="Mountain View" style="width:30px;height:30px;">-->

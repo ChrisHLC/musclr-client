@@ -11,7 +11,6 @@ export class ChatMessageItemComponent implements OnInit {
 
   @Input() message: Chat;
   @Input() friend: User;
-  // user: User = this.userService.getUserConnected();
   result = 50;
 
   constructor() { }

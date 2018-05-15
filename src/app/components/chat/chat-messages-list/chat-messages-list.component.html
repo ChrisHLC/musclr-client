@@ -1,10 +1,10 @@
 <mat-nav-list>
   <mat-list-item *ngFor="let message of messagesList" style="height: 5em;">
-    <img *ngIf="message.user_from_id == friend.user_id" matListAvatar [src]="friend.image_path" alt="toto" style="width: 2.5%; height: auto; margin-left: 20px;"/>
+    <img *ngIf="message.user_from_id == friend._id" matListAvatar src="assets/images/persons/{{friend.image}}" alt="toto" style="width: 2.5%; height: auto; margin-left: 20px;"/>
 
     <app-chat-message-item [message]="message" [friend]="friend"></app-chat-message-item>
 
-    <img *ngIf="message.user_from_id != friend.user_id" matListAvatar [src]="user.image_path" alt="toto" style="position:fixed; right: 50px; width: 2.5%; height: auto; "/>
+    <img *ngIf="message.user_from_id != friend._id" matListAvatar src="assets/images/persons/{{user.image}}" alt="toto" style="position:fixed; right: 50px; width: 2.5%; height: auto; "/>
 
   </mat-list-item>
 </mat-nav-list>

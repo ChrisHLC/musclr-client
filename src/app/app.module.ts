@@ -85,8 +85,8 @@ import {MemberItemComponent} from './components/community/member-item/member-ite
 import {CommunityService} from './components/community/community.service';
 import {WorkoutService} from './components/workout/workout.service';
 import {ChatComponent} from './components/chat/chat.component';
-import {ChatService} from './components/chat/chat.service';
-import {RelationshipService} from './components/chat/relationship.service';
+import {ChatService} from './services/chat.service';
+import {RelationshipService} from './services/relationship.service';
 import {ChatFriendsListComponent} from './components/chat/chat-friends-list/chat-friends-list.component';
 import {ChatMessageFormComponent} from './components/chat/chat-message-form/chat-message-form.component';
 import {ChatMessageItemComponent} from './components/chat/chat-message-item/chat-message-item.component';
@@ -192,7 +192,8 @@ import {UserService} from './services/user.service';
     UsersGraphDetailsService,
     WorkoutService,
     ChatService,
-    RelationshipService
+    RelationshipService,
+    WorkoutService,
     UserService,
   ],
   bootstrap: [AppComponent]

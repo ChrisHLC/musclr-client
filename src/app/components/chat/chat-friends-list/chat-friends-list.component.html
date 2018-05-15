@@ -1,9 +1,9 @@
 <mat-list>
   <h3 mat-subheader>Mes amis : </h3>
   <mat-list-item *ngFor="let friend of friendsList" (click)="clicked(friend)">
-    <img class="friend-image-in-list" matListAvatar [src]="friend.image_path" alt="no img">
+    <img class="friend-image-in-list" matListAvatar src="assets/images/persons/{{friend.image}}" alt="no img">
     <h4 class="friend-username-in-list" mat-line>{{friend.username}}</h4>
     <p class="friend-last-message-in-list" mat-line *ngIf="chatList">
-      {{getLastMessageBetweenFriends(friend.user_id)}}</p>
+      {{getLastMessageBetweenFriends(friend._id)}}</p>
   </mat-list-item>
 </mat-list>

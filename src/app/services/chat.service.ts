@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {Chat} from '../../models/chat.model';
-import {User} from '../../models/user.model';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../environments/environment';
+import {User} from '../models/user.model';
+import {Chat} from '../models/chat.model';
 
 @Injectable()
 export class ChatService {
@@ -14,10 +14,10 @@ export class ChatService {
   constructor(private http: HttpClient) {
   }
 
-  sendMessage(user_from_name, user_to_name, message): Observable<Chat> {
+  sendMessage(user_from_id, user_to_id, message): Observable<Chat> {
     const params = {
-      user_from_name: user_from_name,
-      user_to_name: user_to_name,
+      user_from_id: user_from_id,
+      user_to_id: user_to_id,
       message: message
     };
     return this.http.post(this.chatUrl, JSON.stringify(params), {
@@ -32,7 +32,7 @@ export class ChatService {
     return this.http.get<Chat[]>(this.chatUrl + me + '/' + friend);
   }
 
-  getLastMessagesByUsername(me): Observable<Chat[]> {
+  getLastMessagesByUserId(me): Observable<Chat[]> {
     return this.http.get<Chat[]>(this.chatUrl + me);
   }
 }

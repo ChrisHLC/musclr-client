@@ -6,14 +6,14 @@ import {Router} from '@angular/router';
 import {Workout} from '../models/workout.model';
 import {Observable} from 'rxjs/Observable';
 import {FriendRequest} from '../models/friend-request.model';
+import {AuthService} from '../components/auth/auth.service';
 
 @Injectable()
 export class UserService {
 
   private usersUrl = environment.serverUrl + 'users/';
 
-  constructor(private httpClient: HttpClient,
-              private router: Router) {
+  constructor(private httpClient: HttpClient) {
   }
 
   private httpOptions: RequestOptions = {
@@ -29,6 +29,10 @@ export class UserService {
         return httpResponse.body;
       })
       .catch((error: any) => Observable.throw(error || 'Server error'));
-
   }
+
+  getConnectedUserInfo(id: string) {
+    return this.httpClient.get(this.usersUrl + id);
+  }
+
 }

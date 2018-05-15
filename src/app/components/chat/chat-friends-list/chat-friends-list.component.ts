@@ -3,8 +3,9 @@ import {User} from '../../../models/user.model';
 import {Router} from '@angular/router';
 import {Chat} from '../../../models/chat.model';
 import {Observable} from 'rxjs/Observable';
-import {RelationshipService} from '../relationship.service';
-import {ChatService} from '../chat.service';
+import {RelationshipService} from '../../../services/relationship.service';
+import {ChatService} from '../../../services/chat.service';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-chat-friends-list',
@@ -22,7 +23,8 @@ export class ChatFriendsListComponent implements OnInit {
   chatList: Chat[];
 
   constructor(private relationshipService: RelationshipService,
-              private chatService: ChatService) {
+              private chatService: ChatService,
+              private authService: AuthService) {
   }
 
   clicked(friend: User): void {
@@ -31,7 +33,7 @@ export class ChatFriendsListComponent implements OnInit {
   }
 
   getFriendsList() {
-    this.relationshipService.getFriendsList('Romeo')
+    this.relationshipService.getFriendsList(this.user._id)
       .subscribe(
         data => {
           this.friendsList = data;
@@ -45,7 +47,7 @@ export class ChatFriendsListComponent implements OnInit {
   }
 
   getLastMessagesByUsername() {
-    this.chatService.getLastMessagesByUsername('Romeo')
+    this.chatService.getLastMessagesByUserId(this.user._id)
       .subscribe(
         data => {
           this.chatList = data;
@@ -56,12 +58,12 @@ export class ChatFriendsListComponent implements OnInit {
       );
   }
 
-  getLastMessageBetweenFriends(friend_name) {
+  getLastMessageBetweenFriends(friend_id) {
     for (const chat of this.chatList) {
-      if (chat.user_from_name === friend_name && chat.user_to_name === this.user.username) {
+      if (chat.user_from_id === friend_id && chat.user_to_id === this.user._id) {
         return chat.message;
       }
-      if (chat.user_to_name === friend_name && chat.user_from_name === this.user.username) {
+      if (chat.user_to_id === friend_id && chat.user_from_id === this.user._id) {
         return 'vous : ' + chat.message;
       }
     }
