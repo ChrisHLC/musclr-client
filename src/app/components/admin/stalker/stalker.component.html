@@ -1,0 +1,39 @@
+<section id="stalker" class="pt-5 mt-5 pb-3">
+  <div class="container">
+    <mat-drawer-container class="example-container">
+      <mat-drawer-content>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" frameborder="0" scrolling="no" src="https://plot.ly/~cleitus/36.embed"></iframe>
+        </div>
+      </mat-drawer-content>
+      <mat-drawer mode="side" opened="true" position="end">
+        <form class="form-container form-group" (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <mat-select placeholder="Group" id="Group" [(ngModel)]="formModel.group" name="Group">
+              <mat-option *ngFor="let group of groups" [value]="group.value">
+                {{ group.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+          <div class="py-2">
+            <div class="btn-group-justified">
+
+              <label class="btn btn-elegant waves-light" name="reset" mdbCheckbox mdbRippleRadius (click)="resetForm()">
+                Reset
+              </label>
+
+              <button type="submit" class="btn btn-elegant waves-light" mdbRippleRadius>Submit</button>
+            </div>
+          </div>
+        </form>
+
+      </mat-drawer>
+    </mat-drawer-container>
+  </div>
+</section>
+
+
+<!--toto-->
+

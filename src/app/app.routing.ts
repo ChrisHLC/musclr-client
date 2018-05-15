@@ -21,6 +21,7 @@ import {WorkoutGeneratorComponent} from './components/workout/workout-generator/
 import {WorkoutCarouselComponent} from './components/workout-carousel/workout-carousel.component';
 import {WorkoutComponent} from './components/workout/workout.component';
 import {ChatComponent} from './components/chat/chat.component';
+import {StalkerComponent} from './components/admin/stalker/stalker.component';
 
 
 const routes: Routes = [
@@ -40,8 +41,8 @@ const routes: Routes = [
   {path: 'news', component: NewsComponent},
   {path: 'chat', component: ChatComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'stalker', component: StalkerComponent},
   {path: 'scheduler', component: SchedulerContainerComponent, canActivate: [AuthGuard]},
-  {path: 'profile', component: ProfileComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'workout', component: WorkoutComponent},
   {path: 'workout-carousel', component: WorkoutCarouselComponent},

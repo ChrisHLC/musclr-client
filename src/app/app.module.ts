@@ -92,6 +92,8 @@ import {ChatMessageFormComponent} from './components/chat/chat-message-form/chat
 import {ChatMessageItemComponent} from './components/chat/chat-message-item/chat-message-item.component';
 import {ChatMessagesListComponent} from './components/chat/chat-messages-list/chat-messages-list.component';
 import {UserService} from './services/user.service';
+import { StalkerComponent } from './components/admin/stalker/stalker.component';
+import {StalkerService} from './components/admin/stalker/stalker.service';
 
 @NgModule({
   declarations: [
@@ -135,6 +137,7 @@ import {UserService} from './services/user.service';
     ChatMessageFormComponent,
     ChatMessageItemComponent,
     ChatMessagesListComponent,
+    StalkerComponent,
   ],
   imports: [
     NguCarouselModule,
@@ -195,6 +198,7 @@ import {UserService} from './services/user.service';
     RelationshipService,
     WorkoutService,
     UserService,
+    StalkerService,
   ],
   bootstrap: [AppComponent]
 })
