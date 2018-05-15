@@ -40,7 +40,8 @@
             <div class="single-news" *ngFor="let workout of workoutList |slice:0:show let i=index">
               <div class="row">
                   <div class="col-md-2 textCenter">
-                      <strong>Créateur</strong>
+                      <img src="assets/images/persons/{{workout.createdBy.image}}">
+                      <strong>{{workout.createdBy.username}}</strong>
                     </div>
                     <div class="col-md-2 textCenter">
                       <strong class="textCenter">{{workout.name}}</strong>
