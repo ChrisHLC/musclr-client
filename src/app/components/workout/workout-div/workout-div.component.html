@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-2 textCenter">
+      <img class="positionTop" src="assets/images/persons/{{workout.createdBy.image}}"><br/>
+      <strong>{{workout.createdBy.username}}</strong>
+    </div>
+    <div class="col-md-2 textCenter">
+      <strong class="textCenter">{{workout.name}}</strong>
+    </div>
+    <div class="col-md-2 textCenter">
+      <strong class="textCenter">{{workout.type}} </strong>
+    </div>
+    <div class="col-md-2 textCenter" >
+      <strong class="textCenter">{{workout.pause}}</strong>
+    </div>
+    <div class="col-md-2 textCenter" >
+        <div class="rating positionTop"><!--
+        --><a  [ngStyle]="{'color':setStarStyle(5)}" >☆</a><!--
+        --><a  [ngStyle]="{'color':setStarStyle(4)}" >☆</a><!--
+        --><a  [ngStyle]="{'color':setStarStyle(3)}" >☆</a><!--
+        --><a  [ngStyle]="{'color':setStarStyle(2)}" >☆</a><!--
+        --><a  [ngStyle]="{'color':setStarStyle(1)}" >☆</a>
+     </div>
+     </div>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-elegant waves-light positionTop " mdbRippleRadius (click)="sendWorkoutToPlanning(workout);openSnackBar()" [ngClass]="isDisabled ? 'disabled' : ''" >Ajouter
+        </button>
+    </div>
+</div>

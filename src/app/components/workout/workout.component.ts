@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {WorkoutService} from './workout.service';
 import { Workout } from '../../models/workout.model';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-seance',
@@ -77,5 +78,8 @@ export class WorkoutComponent implements OnInit, OnDestroy {
   getWorkoutListByType(type: string){
     return this.workoutService.getWorkoutListByType(type);
   }
+
+  
+
 
 }
