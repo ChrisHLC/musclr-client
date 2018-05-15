@@ -21,7 +21,7 @@
   <div class="row ">
     <div class="btn-group">
       <label *ngFor="let button of nodeSizeButtons" class="btn btn-elegant btn-sm waves-light" [(ngModel)]="radioModelNodeSize"
-        mdbRadio="{{button.id}}" mdbWavesEffect (click)="nodeColor(button.id)">
+        mdbRadio="{{button.id}}" mdbWavesEffect (click)="nodeSize(button.id)">
         {{button.label}}
       </label>
     </div>

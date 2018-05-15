@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UsersGraphDetailsService } from './users-graph-details.service';
 import { Link, Node } from '../../../d3/models';
+import * as _ from "lodash";
 
 @Component({
   selector: 'app-users-graph-details',
@@ -16,7 +17,7 @@ export class UsersGraphDetailsComponent implements OnInit {
   public radioModelNode: string = "";
 
   public nodeSizeButtons = [{ id: 'activity', label: 'Activités' },
-  { id: 'friends', label: 'Ami(e)s' },
+  { id: 'Friend', label: 'Ami(e)s' },
   { id: 'events', label: 'Evénements' },
   { id: 'ranking', label: 'Notes' }];
   public radioModelNodeSize: string = "";
@@ -66,8 +67,15 @@ export class UsersGraphDetailsComponent implements OnInit {
     this.userGraphService.setNodes(this.nodes);
   }
 
-  nodeSize() {
-
+  nodeSize(data: string) {
+    let self = this;
+    this.links = this.userGraphService.getLinks();
+    this.nodes = this.userGraphService.getNodes();
+    let friendLink = _.filter(this.links, ['label', data]);
+    let list = _.merge(_.groupBy(friendLink, 'source.id'), _.groupBy(friendLink, 'target.id'));
+    _.forEach(list, function (value, key) {
+      _.set((_.filter(self.nodes, { 'id': Number(key) })), '[0].normal', (value.length / 15));
+    })
   }
 
   linkColor(data: string) {

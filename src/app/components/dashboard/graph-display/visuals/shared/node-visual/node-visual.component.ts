@@ -14,7 +14,7 @@ import {Component, Input} from '@angular/core';
       </svg:circle>
       <svg:text
         class="node-name"
-        dx="15"
+        [attr.dx]="node.r + 5"
         dy="4"
         [attr.font-size]="node.fontSize">
         {{node.label}}
