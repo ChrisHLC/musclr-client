@@ -28,7 +28,7 @@ export class Node implements d3.SimulationNodeDatum {
     this.group = group;
     this.label = label;
     this.level = level;
-    this.role = role?role:'';
+    this.role = role ? role : '';
   }
 
   // normal = () => {
@@ -37,7 +37,7 @@ export class Node implements d3.SimulationNodeDatum {
 
 
   get r() {
-    return 10;
+    return 50 * this.normal + 10;
   }
 
   get fontSize() {
