@@ -1,4 +1,5 @@
 import {Routine} from './routine.model';
+import {User} from './user.model';
 
 export class Workout {
   constructor(
@@ -7,7 +8,7 @@ export class Workout {
     public routines: Routine[],
     public pause: number,
     public type: string,
-    public createdBy: string,
+    public createdBy: User,
     public createdOn: Date,
   ) {
   }
