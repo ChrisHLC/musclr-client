@@ -26,7 +26,7 @@ export class UsersGraphDetailsComponent implements OnInit {
   public checkModelLink: any = { Coach: false, Friend: false };
 
   public linkSizeButtons = [
-    { id: 'events', label: 'Evénements' },
+    { id: 'Participate', label: 'Evénements' },
     { id: 'proximity', label: 'Proximité' }];
   public radioModelLinkSize: string = "";
 
@@ -99,9 +99,21 @@ export class UsersGraphDetailsComponent implements OnInit {
     }
   }
 
-  linkSize(data: string){
+  linkSize(data: string) {
     let self = this;
     this.links = this.userGraphService.getLinks();
     this.nodes = this.userGraphService.getNodes();
+    var map: Map<string, Link[]> = new Map<string, Link[]>();
+    _.forEach((_.filter(this.nodes, ['group', 'users'])), function (user: Node) {
+      var link = _.filter((_.filter(self.links, ['label', data])), ['source.id', user.id]);
+      map.set(user.id, link);
+    });
+    _.forEach((_.filter(this.links, ['label', 'Friend'])), function (friendLink: Link) {
+      var events = _.intersectionBy(map.get(friendLink.source.id), map.get(friendLink.target.id), 'target.id');
+      if (events.length > 0) {
+        _.set(friendLink, 'size', (events.length * 2));
+        _.set(friendLink, 'color', "#000033");
+      }
+    });
   }
 }

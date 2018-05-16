@@ -1,8 +1,4 @@
-.link {
-  /* stroke-width: 1; */
-  /* stroke: #E5E5E5; */
-}
-
 .link-name {
   text-anchor: middle;
+  font-family: 'Monospace';
 }
