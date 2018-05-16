@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-graph-legend',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraphLegendComponent implements OnInit {
 
+  @Input()
+  checkModel;
+  
   constructor() { }
 
   ngOnInit() {

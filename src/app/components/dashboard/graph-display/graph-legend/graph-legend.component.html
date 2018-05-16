@@ -1,5 +1,38 @@
 <div class="container">
-  <div>
-    
+  <div class="card card-cascade narrower">
+    <h4 class="h4-responsive">Légende</h4>
+    <div class="row" id="users" *ngIf="checkModel.users">
+      <div class="col-md-2">
+        <span class="dot"></span>
+      </div>
+      <div class="col-md-10">
+        Les utilisateurs
+      </div>
+    </div>
+    <div class="row" id="gyms" *ngIf="checkModel.gyms">
+      <div class="col-md-2">
+        <span class="dot"></span>
+      </div>
+      <div class="col-md-10">
+        Les salles
+      </div>
+    </div>
+    <div class="row" id="towns" *ngIf="checkModel.towns">
+      <div class="col-md-2">
+        <span class="dot"></span>
+      </div>
+      <div class="col-md-10">
+        Les villes
+      </div>
+    </div>
+    <div class="row" id="events" *ngIf="checkModel.events">
+      <div class="col-md-2">
+        <span class="dot"></span>
+      </div>
+      <div class="col-md-10">
+        Les événements
+      </div>
+    </div>
+
   </div>
-</div>>
+</div>
