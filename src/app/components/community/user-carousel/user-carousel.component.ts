@@ -53,6 +53,4 @@ export class UserCarouselComponent implements OnInit {
     // it is helps to load the data by parts to increase the performance of the app
     // must use feature to all carousel
   }
-
-
 }

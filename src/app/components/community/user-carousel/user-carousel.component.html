@@ -3,22 +3,43 @@
               (carouselLoad)="myfunc($event)">
   <ngu-item NguCarouselItem>
     <div class="carousselCards">
+
     <!-- Card Narrower -->
-      <div *ngFor="let user of carouselUserList" class="cardContainer">
+      <div *ngFor="let user of firstTurnCarousel" class="cardContainer">
         <img class="cardPictureCircle" src="assets/images/persons/{{user.image}}" alt="Profile's picture"/>
         <h2>{{user.username}}</h2>
         <p>Level: {{user.level}}</p>
         <p>Birthdate: {{user.birthday}}</p>
       </div>
+
     </div>
-
   </ngu-item>
 
   <ngu-item NguCarouselItem>
-    Est vraiment fonctionnel, mais surtout...
+    <div class="carousselCards">
+
+      <!-- Card Narrower -->
+      <div *ngFor="let user of secondTurnCarousel" class="cardContainer">
+        <img class="cardPictureCircle" src="assets/images/persons/{{user.image}}" alt="Profile's picture"/>
+        <h2>{{user.username}}</h2>
+        <p>Level: {{user.level}}</p>
+        <p>Birthdate: {{user.birthday}}</p>
+      </div>
+
+    </div>
   </ngu-item>
   <ngu-item NguCarouselItem>
-    Le mec qui l'a implementé dechire de fou :O!! Quel BG.
+    <div class="carousselCards">
+
+      <!-- Card Narrower -->
+      <div *ngFor="let user of thirdTurnCarousel" class="cardContainer">
+        <img class="cardPictureCircle" src="assets/images/persons/{{user.image}}" alt="Profile's picture"/>
+        <h2>{{user.username}}</h2>
+        <p>Level: {{user.level}}</p>
+        <p>Birthdate: {{user.birthday}}</p>
+      </div>
+
+    </div>
   </ngu-item>
   <button NguCarouselPrev class='leftRs'>&lt;</button>
   <button NguCarouselNext class='rightRs'>&gt;</button>
