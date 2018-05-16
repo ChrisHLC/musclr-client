@@ -16,9 +16,9 @@ export class UsersGraphDetailsComponent implements OnInit {
   public nodeButtons = [{ id: 'level', label: 'Niveau' }, { id: 'role', label: 'Rôle' }];
   public radioModelNode: string = "";
 
-  public nodeSizeButtons = [{ id: 'activity', label: 'Activités' },
+  public nodeSizeButtons = [{ id: 'Create', label: 'Activités' },
   { id: 'Friend', label: 'Ami(e)s' },
-  { id: 'events', label: 'Evénements' },
+  { id: 'Participate', label: 'Evénements' },
   { id: 'ranking', label: 'Notes' }];
   public radioModelNodeSize: string = "";
 
@@ -26,7 +26,7 @@ export class UsersGraphDetailsComponent implements OnInit {
   public checkModelLink: any = { Coach: false, Friend: false };
 
   public linkSizeButtons = [
-    { id: 'events', label: 'Evénements' },
+    { id: 'Participate', label: 'Evénements' },
     { id: 'proximity', label: 'Proximité' }];
   public radioModelLinkSize: string = "";
 
@@ -71,10 +71,10 @@ export class UsersGraphDetailsComponent implements OnInit {
     let self = this;
     this.links = this.userGraphService.getLinks();
     this.nodes = this.userGraphService.getNodes();
-    let friendLink = _.filter(this.links, ['label', data]);
-    let list = _.merge(_.groupBy(friendLink, 'source.id'), _.groupBy(friendLink, 'target.id'));
+    let linkList = _.filter(this.links, ['label', data]);
+    let list = _.merge(_.groupBy(linkList, 'source.id'), _.groupBy(linkList, 'target.id'));
     _.forEach(list, function (value, key) {
-      _.set((_.filter(self.nodes, { 'id': Number(key) })), '[0].normal', (value.length / 15));
+      _.set((_.filter((_.filter(self.nodes, ['group', 'users'])), { 'id': Number(key) })), '[0].normal', (value.length / 15));
     })
   }
 
@@ -97,5 +97,23 @@ export class UsersGraphDetailsComponent implements OnInit {
       });
       this.userGraphService.setLinks(this.links);
     }
+  }
+
+  linkSize(data: string) {
+    let self = this;
+    this.links = this.userGraphService.getLinks();
+    this.nodes = this.userGraphService.getNodes();
+    var map: Map<string, Link[]> = new Map<string, Link[]>();
+    _.forEach((_.filter(this.nodes, ['group', 'users'])), function (user: Node) {
+      var link = _.filter((_.filter(self.links, ['label', data])), ['source.id', user.id]);
+      map.set(user.id, link);
+    });
+    _.forEach((_.filter(this.links, ['label', 'Friend'])), function (friendLink: Link) {
+      var events = _.intersectionBy(map.get(friendLink.source.id), map.get(friendLink.target.id), 'target.id');
+      if (events.length > 0) {
+        _.set(friendLink, 'size', (events.length * 2));
+        _.set(friendLink, 'color', "#000033");
+      }
+    });
   }
 }

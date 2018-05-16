@@ -11,11 +11,14 @@ import {Component, Input} from '@angular/core';
       [attr.x2]="link.x2"
       [attr.y2]="link.y2"
       [attr.marker-end]="link.markerEnd"
+      [attr.stroke]= "link.color"
+      [attr.stroke-width]= "link.size"
+      
     ></svg:line>
     <svg:text
       class="link-name"
       [attr.transform]="link.transform"
-      [attr.dy]="-3"
+      [attr.dy]="-10"
       [attr.font-size]="10"
     >
       {{link.label}}

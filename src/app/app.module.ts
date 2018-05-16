@@ -92,6 +92,7 @@ import {ChatMessageFormComponent} from './components/chat/chat-message-form/chat
 import {ChatMessageItemComponent} from './components/chat/chat-message-item/chat-message-item.component';
 import {ChatMessagesListComponent} from './components/chat/chat-messages-list/chat-messages-list.component';
 import {UserService} from './services/user.service';
+import { GraphLegendComponent } from './components/dashboard/graph-display/graph-legend/graph-legend.component';
 import { WorkoutDivComponent } from './components/workout/workout-div/workout-div.component';
 
 @NgModule({
@@ -137,6 +138,7 @@ import { WorkoutDivComponent } from './components/workout/workout-div/workout-di
     ChatMessageItemComponent,
     ChatMessagesListComponent,
     WorkoutDivComponent,
+    GraphLegendComponent,
   ],
   imports: [
     NguCarouselModule,

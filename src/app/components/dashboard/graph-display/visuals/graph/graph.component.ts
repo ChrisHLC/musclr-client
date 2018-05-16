@@ -12,10 +12,12 @@ import {D3Service, ForceDirectedGraph} from '../../d3';
             <path d="M0,0 L0,6 L9,3 z" fill="E5E5E5"></path>
           </marker>
         </defs>
-        <g [linkVisual]="link" *ngFor="let link of links" [ngStyle]="{'stroke': link.color}"></g>
-        <g [nodeVisual]="node" *ngFor="let node of nodes" (click)="drawer.toggle()"
-        routerLink="/graph/{{node.group}}"
-           [draggableNode]="node" [draggableInGraph]="forceDirectedGraph"></g>
+        <g [linkVisual]="link" *ngFor="let link of links"></g>
+        <g [nodeVisual]="node" *ngFor="let node of nodes" 
+          (click)="drawer.toggle()"
+          routerLink="/graph/{{node.group}}"
+          [draggableNode]="node" 
+          [draggableInGraph]="forceDirectedGraph"></g>
       </g>
     </svg>
   `,
