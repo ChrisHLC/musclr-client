@@ -10,6 +10,6 @@ export const environment = {
   neo4jUrl: 'http://192.168.102.170:8080/',
   springBootServerUrl: 'http://localhost:8181/',
   // springBootServerUrl: 'http://192.168.102.112:8080/',
-  chatServerUrl: 'http://localhost:5000/',
+  chatServerUrl: 'http://localhost:3010/',
   stalkerFlaskUrl: 'http://localhost:5000/',
 };
