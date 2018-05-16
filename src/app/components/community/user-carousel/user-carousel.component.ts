@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NguCarousel} from '@ngu/carousel';
 import {CommunityService} from '../community.service';
 import {User} from '../../../models/user.model';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-user-carousel',
   templateUrl: './user-carousel.component.html',
   styleUrls: ['./user-carousel.component.scss']
 })
+
 export class UserCarouselComponent implements OnInit {
   public carouselOne: NguCarousel;
   public carouselUserList: User[] = [];
@@ -19,6 +21,12 @@ export class UserCarouselComponent implements OnInit {
     this.communityService.loadCarouselUsers().subscribe(
       (data: User[]) => {
         this.carouselUserList = data;
+        this.firstTurnCarousel = [this.carouselUserList[0], this.carouselUserList[1], this.carouselUserList[2]];
+        this.secondTurnCarousel = [this.carouselUserList[3], this.carouselUserList[4], this.carouselUserList[5]];
+        this.thirdTurnCarousel = [this.carouselUserList[6], this.carouselUserList[7], this.carouselUserList[8]];
+      },
+      error => {
+        console.log(error);
       }
     );
   }
@@ -37,17 +45,11 @@ export class UserCarouselComponent implements OnInit {
       loop: true,
       custom: 'banner'
     };
-
-    this.communityService.loadCarouselUsers().subscribe(
-      (data: User[]) => {
-        this.carouselUserList = data;
-      }
-    );
-    this.firstTurnCarousel = [this.carouselUserList[0], this.carouselUserList[1], this.carouselUserList[2]];
-    this.secondTurnCarousel = [this.carouselUserList[3], this.carouselUserList[4], this.carouselUserList[5]];
-    this.thirdTurnCarousel = [this.carouselUserList[6], this.carouselUserList[7], this.carouselUserList[8]];
   }
 
+  getAge(birthdate): number {
+    return moment().diff(birthdate, 'years');
+  }
   public myfunc(event: Event) {
     // carouselLoad will trigger this function when your load value reaches
     // it is helps to load the data by parts to increase the performance of the app

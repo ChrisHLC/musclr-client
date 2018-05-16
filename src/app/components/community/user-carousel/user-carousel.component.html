@@ -6,24 +6,32 @@
 
     <!-- Card Narrower -->
       <div *ngFor="let user of firstTurnCarousel" class="cardContainer">
+        <a class="noDecoration" href="*">
         <img class="cardPictureCircle" src="assets/images/persons/{{user.image}}" alt="Profile's picture"/>
+        </a>
+          <a class="noDecoration" href="*">
         <h2>{{user.username}}</h2>
         <p>Level: {{user.level}}</p>
-        <p>Birthdate: {{user.birthday}}</p>
+        <p>Age: {{getAge(user.birthday)}}</p>
+          </a>
       </div>
 
     </div>
   </ngu-item>
 
-  <ngu-item NguCarouselItem>
+   <ngu-item NguCarouselItem>
     <div class="carousselCards">
 
-      <!-- Card Narrower -->
+
       <div *ngFor="let user of secondTurnCarousel" class="cardContainer">
+        <a class="noDecoration" href="*">
         <img class="cardPictureCircle" src="assets/images/persons/{{user.image}}" alt="Profile's picture"/>
+        </a>
+        <a class="noDecoration"  href="*">
         <h2>{{user.username}}</h2>
         <p>Level: {{user.level}}</p>
-        <p>Birthdate: {{user.birthday}}</p>
+        <p>Age: {{getAge(user.birthday)}}</p>
+        </a>
       </div>
 
     </div>
@@ -31,16 +39,25 @@
   <ngu-item NguCarouselItem>
     <div class="carousselCards">
 
-      <!-- Card Narrower -->
+
       <div *ngFor="let user of thirdTurnCarousel" class="cardContainer">
-        <img class="cardPictureCircle" src="assets/images/persons/{{user.image}}" alt="Profile's picture"/>
-        <h2>{{user.username}}</h2>
-        <p>Level: {{user.level}}</p>
-        <p>Birthdate: {{user.birthday}}</p>
+        <a class="noDecoration" href="*"><img class="cardPictureCircle" src="assets/images/persons/{{user.image}}" alt="Profile's picture"/></a>
+        <a href="*" class="noDecoration" >
+          <h2>{{user.username}}</h2>
+          <p>Level: {{user.level}}</p>
+          <p>Age: {{getAge(user.birthday)}}</p>
+        </a>
       </div>
+
 
     </div>
   </ngu-item>
-  <button NguCarouselPrev class='leftRs'>&lt;</button>
-  <button NguCarouselNext class='rightRs'>&gt;</button>
+  <button NguCarouselPrev class="leftRs" color="transparent" mat-mini-fab>
+    <mat-icon><i class="buttonPersoL fa fa-angle-left"></i></mat-icon>
+  </button>
+  <!--<a NguCarouselPrev class='leftRs'>&lt;</a>-->
+  <button NguCarouselNext class="rightRs" color="transparent" mat-mini-fab>
+    <mat-icon><i class="buttonPersoR fa fa-angle-right"></i></mat-icon>
+  </button>
+  <!--<a NguCarouselNext class='rightRs'>&gt;</a>-->
 </ngu-carousel>

@@ -28,5 +28,13 @@
   }
 }
 
+.coverFS{
+  -webkit-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+}
 
-
+.carousel-caption{
+  position: absolute;
+  top: 50vh;
+}
