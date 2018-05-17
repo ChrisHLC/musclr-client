@@ -3,15 +3,15 @@
 
     <button mat-button [matMenuTriggerFor]="menuMap">Map</button>
     <mat-menu #menuMap="matMenu">
-      <button mat-menu-item (click)="changePlotlySrc('eigenVectorMap')">Eigen Vector</button>
-      <button mat-menu-item (click)="changePlotlySrc('closenessMap')">Closeness</button>
-      <button mat-menu-item (click)="changePlotlySrc('betweennessMap')">Betweenness</button>
+      <button mat-menu-item (click)="changePlotlySrc('eigenVectorMap')">Map - Eigen Vector</button>
+      <button mat-menu-item (click)="changePlotlySrc('closenessMap')">Map - Closeness</button>
+      <button mat-menu-item (click)="changePlotlySrc('betweennessMap')">Map - Betweenness</button>
     </mat-menu>
     <button mat-button [matMenuTriggerFor]="menuThreeD">3D</button>
     <mat-menu #menuThreeD="matMenu">
-      <button mat-menu-item (click)="changePlotlySrc('eigenVector3D')">3D 1</button>
-      <button mat-menu-item (click)="changePlotlySrc('closeness3D')">3D 2</button>
-      <button mat-menu-item (click)="changePlotlySrc('betweenness3D')">3D 3</button>
+      <button mat-menu-item (click)="changePlotlySrc('eigenVector3D')">3D - Eigen Vector</button>
+      <button mat-menu-item (click)="changePlotlySrc('closeness3D')">3D - Closeness</button>
+      <button mat-menu-item (click)="changePlotlySrc('betweenness3D')">3D - Betweenness</button>
     </mat-menu>
 
 
@@ -39,6 +39,8 @@
               <mat-form-field>
                 <input matInput placeholder="Age min" id="minAge" [(ngModel)]="formModel.minAge" name="minAge">
               </mat-form-field>
+            </div>
+            <div>
               <mat-form-field>
                 <input matInput placeholder="Age max" id="maxAge" [(ngModel)]="formModel.maxAge" name="maxAge">
               </mat-form-field>
