@@ -22,6 +22,7 @@ export class Node implements d3.SimulationNodeDatum {
   level: string;
   normal = 0;
   color: string;
+  stroke: string;
 
   constructor(id, group, label, color?, level?, role?) {
     this.id = id;
@@ -44,4 +45,5 @@ export class Node implements d3.SimulationNodeDatum {
   get fontSize() {
     return (30 * this.normal + 10) + 'px';
   }
+
 }

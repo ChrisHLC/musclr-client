@@ -8,9 +8,11 @@ import {Component, Input} from '@angular/core';
       <svg:circle
         class="node"
         [attr.fill]="node.color"
+        [attr.stroke]="node.stroke"
         cx="0"
         cy="0"
-        [attr.r]="node.r">
+        [attr.r]="node.r"
+        [ngStyle]="node.style">
       </svg:circle>
       <svg:text
         class="node-name"
