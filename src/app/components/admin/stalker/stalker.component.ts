@@ -15,7 +15,12 @@ export class StalkerComponent implements OnInit, OnDestroy {
     {value: '1', viewValue: 'Communauté-1'},
     {value: '2', viewValue: 'Communauté-2'},
     {value: '3', viewValue: 'Communauté-3'},
-    {value: '4', viewValue: 'Communauté-4'}
+    {value: '4', viewValue: 'Communauté-4'},
+    {value: '5', viewValue: 'Communauté-5'},
+    {value: '6', viewValue: 'Communauté-6'},
+    {value: '7', viewValue: 'Communauté-7'},
+    {value: '8', viewValue: 'Communauté-8'},
+    {value: '9', viewValue: 'Communauté-9'},
   ];
   gyms = [
     {value: '-1', viewValue: 'Tout'},
@@ -56,7 +61,7 @@ export class StalkerComponent implements OnInit, OnDestroy {
   ngOnInit() {
     (document.getElementsByClassName('navbar').item(0) as HTMLElement).style.backgroundColor = 'black';
     this.formModel = new StalkerFormModel(null, 25, 69, null);
-    this.plotlyToShow = 'https://plot.ly/~zhening/1.embed';
+    this.plotlyToShow = 'https://plot.ly/~zhening/9.embed';
     this.plotSelected = 'eigenVectorMap';
   }
 
