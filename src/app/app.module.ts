@@ -29,10 +29,10 @@ import {
   MatDatepickerModule,
   MatDialogModule,
   MatExpansionModule,
+  MatFormFieldModule,
   MatGridListModule,
   MatIconModule,
   MatInputModule,
-  MatFormFieldModule,
   MatListModule,
   MatMenuModule,
   MatNativeDateModule,
@@ -47,15 +47,14 @@ import {
   MatSlideToggleModule,
   MatSnackBarModule,
   MatSortModule,
+  MatStepperModule,
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatStepperModule,
 } from '@angular/material';
 import {CommunityComponent} from './components/community/community.component';
 import {SchedulerService} from './components/scheduler-container/scheduler.service';
-import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import {ExercisesComponent} from './components/exercises/exercises.component';
 import {SafePipe} from './components/exercises/safe.pipe';
@@ -92,10 +91,11 @@ import {ChatMessageFormComponent} from './components/chat/chat-message-form/chat
 import {ChatMessageItemComponent} from './components/chat/chat-message-item/chat-message-item.component';
 import {ChatMessagesListComponent} from './components/chat/chat-messages-list/chat-messages-list.component';
 import {UserService} from './services/user.service';
-import { GraphLegendComponent } from './components/dashboard/graph-display/graph-legend/graph-legend.component';
-import { WorkoutDivComponent } from './components/workout/workout-div/workout-div.component';
-import { StalkerComponent } from './components/admin/stalker/stalker.component';
+import {GraphLegendComponent} from './components/dashboard/graph-display/graph-legend/graph-legend.component';
+import {WorkoutDivComponent} from './components/workout/workout-div/workout-div.component';
+import {StalkerComponent} from './components/admin/stalker/stalker.component';
 import {StalkerService} from './components/admin/stalker/stalker.service';
+import { KibanaComponent } from './components/admin/kibana/kibana.component';
 
 @NgModule({
   declarations: [
@@ -117,10 +117,8 @@ import {StalkerService} from './components/admin/stalker/stalker.service';
     NodeVisualComponent,
     GraphDisplayComponent,
     GraphDrawerComponent,
-    ProfileComponent,
     ExercisesComponent,
     ProfileComponent,
-    DashboardComponent,
     FriendItemComponent,
     SafePipe,
     UsersGraphDetailsComponent,
@@ -142,6 +140,7 @@ import {StalkerService} from './components/admin/stalker/stalker.service';
     WorkoutDivComponent,
     GraphLegendComponent,
     StalkerComponent,
+    KibanaComponent,
   ],
   imports: [
     NguCarouselModule,

@@ -15,7 +15,7 @@ export class AuthService {
 
   private usersUrl = environment.serverUrl + 'users/';
   private friendsUrl = environment.serverUrl + 'friend-requests/';
-   friendRequestNumber = new Subject<number>();
+  friendRequestNumber = new Subject<number>();
   friendRequestNumber$ = this.friendRequestNumber.asObservable();
 
   private httpOptions: RequestOptions = {
@@ -66,6 +66,21 @@ export class AuthService {
 
   getFriendRequests() {
     return this.httpClient.get(this.friendsUrl);
+  }
+
+  getRole(): string {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace('-', '+').replace('_', '/');
+      return JSON.parse(window.atob(base64)).role;
+    } else {
+      return null;
+    }
+  }
+
+  isAdmin() {
+    return this.getRole() === 'Admin';
   }
 
 }

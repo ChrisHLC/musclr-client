@@ -9,7 +9,6 @@ import {NewsComponent} from './components/news/news.component';
 import {CommunityComponent} from './components/community/community.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import {ExercisesComponent} from './components/exercises/exercises.component';
-import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {GraphDisplayComponent} from './components/dashboard/graph-display/graph-display.component';
 /* tslint:disable:max-line-length */
 import {UsersGraphDetailsComponent} from './components/dashboard/graph-display/graph-drawer/graph-details/users-graph-details/users-graph-details.component';
@@ -22,6 +21,7 @@ import {WorkoutCarouselComponent} from './components/workout-carousel/workout-ca
 import {WorkoutComponent} from './components/workout/workout.component';
 import {ChatComponent} from './components/chat/chat.component';
 import {StalkerComponent} from './components/admin/stalker/stalker.component';
+import {KibanaComponent} from './components/admin/kibana/kibana.component';
 
 
 const routes: Routes = [
@@ -34,18 +34,18 @@ const routes: Routes = [
       {path: 'gyms', component: GymsGraphDetailsComponent}
     ]
   },
+  {path: 'chat', component: ChatComponent},
   {path: 'community', component: CommunityComponent},
   {path: 'exercises', component: ExercisesComponent},
-  {path: 'workout-generator', component: WorkoutGeneratorComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'kibana', component: KibanaComponent},
   {path: 'news', component: NewsComponent},
-  {path: 'chat', component: ChatComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'stalker', component: StalkerComponent},
   {path: 'scheduler', component: SchedulerContainerComponent, canActivate: [AuthGuard]},
-  {path: 'dashboard', component: DashboardComponent},
   {path: 'workout', component: WorkoutComponent},
   {path: 'workout-carousel', component: WorkoutCarouselComponent},
+  {path: 'workout-generator', component: WorkoutGeneratorComponent},
   {path: '**', redirectTo: ''},
 ];
 
