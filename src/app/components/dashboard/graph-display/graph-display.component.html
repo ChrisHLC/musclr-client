@@ -4,14 +4,18 @@
   </mat-drawer>
 
   <div class="btn-group">
-    <label *ngFor="let button of buttons" class="btn btn-elegant btn-sm waves-light" [(ngModel)]=checkModel[button.id]
-           mdbCheckbox mdbWavesEffect (click)="addData(button.id)">
+    <label *ngFor="let button of buttons" class="btn btn-elegant btn-sm waves-light" [(ngModel)]=checkModel[button.id] mdbCheckbox
+      mdbWavesEffect (click)="addData(button.id)">
       {{button.label}}
     </label>
   </div>
 
 
   <app-graph [nodes]="nodes" [links]="links" [drawer]="drawer"></app-graph>
+
+  <div class="legend">
+    <app-graph-legend [checkModel]="checkModel"></app-graph-legend>
+  </div>
 
   <button class="btn btn-elegant waves-light search-button" (click)="drawer.toggle()">
     <i class="fa fa-search" aria-hidden="true"></i>

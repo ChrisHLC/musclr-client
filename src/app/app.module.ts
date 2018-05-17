@@ -96,6 +96,7 @@ import {WorkoutDivComponent} from './components/workout/workout-div/workout-div.
 import {StalkerComponent} from './components/admin/stalker/stalker.component';
 import {StalkerService} from './components/admin/stalker/stalker.service';
 import { KibanaComponent } from './components/admin/kibana/kibana.component';
+import {GraphLegendService} from './components/dashboard/graph-display/graph-legend/graph-legend.service';
 
 @NgModule({
   declarations: [
@@ -202,6 +203,7 @@ import { KibanaComponent } from './components/admin/kibana/kibana.component';
     WorkoutService,
     UserService,
     StalkerService,
+    GraphLegendService,
   ],
   bootstrap: [AppComponent]
 })

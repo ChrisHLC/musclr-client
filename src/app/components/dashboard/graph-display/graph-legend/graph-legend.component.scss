@@ -1,0 +1,35 @@
+.card{
+    padding: 5px;
+}
+.row{
+    flex-wrap: nowrap;
+}
+.dot{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-flex;
+}
+.coach{
+    margin-bottom: 10px;
+}
+
+.link{
+    height: 10px;
+    width: 25px;
+    border-radius: 4%;
+    margin-right: 10px;
+    display: inline-flex;
+}
+.users{background-color: #5cd65c;}
+.gyms{background-color: #ff4d4d;}
+.towns{background-color: #ffe066;}
+.events{background-color: #3366ff;}
+.gold{background-color:#D4AF37;}
+.silver{background-color: #C0C0C0;}
+.bronze{background-color: #CD7F32;}
+.coachr{background-color: #ff3333;}
+.musclr{background-color: #3399ff;}
+.coachrlink{background-color: #2E86C1;}
+.friendlink{background-color: #F40D45;}

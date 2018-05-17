@@ -1,5 +1,103 @@
 <div class="container">
-  <div>
-    
+  <div class="card card-cascade narrower">
+    <h4 class="h4-responsive">Légende</h4>
+    <div class="row" id="users" *ngIf="isDefault('users')">
+      <div class="col-md-2">
+        <span class="dot users"></span>
+      </div>
+      <div class="col-md-10">
+        Les utilisateurs
+      </div>
+    </div>
+    <div id="users" *ngIf="isLevel()">
+      <h6 class="h6-responsive">Les niveaux</h6>
+      <div class="row">
+        <div class="col-md-2">
+          <span class="dot gold"></span>
+        </div>
+        <div class="col-md-10">
+          Gold
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <span class="dot silver"></span>
+        </div>
+        <div class="col-md-10">
+          Silver
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <span class="dot bronze"></span>
+        </div>
+        <div class="col-md-10">
+          Bronze
+        </div>
+      </div>
+    </div>
+    <div id="users" *ngIf="isRole()">
+      <h6 class="h6-responsive">Les rôles</h6>
+      <div class="row">
+        <div class="col-md-2">
+          <span class="dot coachr"></span>
+        </div>
+        <div class="col-md-10">
+          CoachR
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <span class="dot musclr"></span>
+        </div>
+        <div class="col-md-10">
+          MusclR
+        </div>
+      </div>
+    </div>
+    <div id="coach" *ngIf="isCoachLink()">
+        <h6 class="h6-responsive">Les liens</h6>
+        <div class="row">
+          <div class="col-md-2">
+            <span class="link coachrlink"></span>
+          </div>
+          <div class="col-md-10">
+            Coach
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <span class="link friendlink"></span>
+          </div>
+          <div class="col-md-10">
+            Ami(e)s
+          </div>
+        </div>
+      </div>
+    <div class="row" id="gyms" *ngIf="checkModel.gyms">
+      <div class="col-md-2">
+        <span class="dot gyms"></span>
+      </div>
+      <div class="col-md-10">
+        Les Salles
+      </div>
+    </div>
+    <div class="row" id="towns" *ngIf="checkModel.towns">
+      <div class="col-md-2">
+        <span class="dot towns"></span>
+      </div>
+      <div class="col-md-10">
+        Les villes
+      </div>
+    </div>
+    <div class="row" id="events" *ngIf="checkModel.events">
+      <div class="col-md-2">
+        <span class="dot events"></span>
+      </div>
+      <div class="col-md-10">
+        Les événements
+      </div>
+    </div>
+
   </div>
-</div>>
+</div>
