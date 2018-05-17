@@ -11,7 +11,8 @@ export class Workout {
     public type: string,
     public createdBy: User,
     public createdOn: Date,
-    public ratings: Rating[]
+    public ratings: Rating[],
+    public ratingMoy: number
   ) {
   }
 
