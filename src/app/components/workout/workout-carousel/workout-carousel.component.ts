@@ -82,6 +82,14 @@ export class WorkoutCarouselComponent implements OnInit{
     });
   }
 
+  setStarStyle(number: number, ratingMoy: number){
+    let color = "#aaa";
+    if(number <= ratingMoy){
+      color = "orange";
+    }
+    return color;
+  }
+
   public myfunc(event: Event) {
     // carouselLoad will trigger this function when your load value reaches
     // it is helps to load the data by parts to increase the performance of the app
