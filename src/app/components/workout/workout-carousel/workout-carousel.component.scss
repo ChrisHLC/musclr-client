@@ -57,3 +57,22 @@ a.noDecoration{
   text-decoration: none;
   color: black;
 }
+
+.rating {
+  direction: rtl;
+}
+.rating a {
+//    color: #aaa;
+  text-decoration: none;
+  font-size: 2em;
+  transition: color .4s;
+  
+}
+
+.positionTop {
+  margin-top: -1.5em;
+}
+
+.biggerFont {
+  font-size: 1.25em;
+}

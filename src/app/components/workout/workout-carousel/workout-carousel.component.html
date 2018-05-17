@@ -6,43 +6,61 @@
       <div *ngFor="let workout of firstPartWorkouts" class="cardContainer">
         <a class="noDecoration" href="*">
         <img class="cardPictureCircle" src="assets/images/persons/{{workout.createdBy.image}}" alt="Profile's picture"/>
-        </a>
+        </a><br/>
         <a class="noDecoration"  href="*">
-        <p>bla</p>
-        <p>bla</p>
-        <p>bla}</p>
+        <strong class="biggerFont">{{workout.name}}</strong><br/>
+        <p>Type : {{workout.type}}</p>
+        <div class="rating positionTop"><!--
+        --><a  [ngStyle]="{'color':setStarStyle(5, workout.ratingMoy)}" >☆</a><!--
+        --><a  [ngStyle]="{'color':setStarStyle(4, workout.ratingMoy)}" >☆</a><!--
+        --><a  [ngStyle]="{'color':setStarStyle(3, workout.ratingMoy)}" >☆</a><!--
+        --><a  [ngStyle]="{'color':setStarStyle(2, workout.ratingMoy)}" >☆</a><!--
+        --><a  [ngStyle]="{'color':setStarStyle(1, workout.ratingMoy)}" >☆</a>
+     </div>
         </a>
       </div>
     </div>
   </ngu-item>
   <ngu-item NguCarouselItem>
-    <div class="carousselCards">
-      <div *ngFor="let workout of secondPartWorkouts" class="cardContainer">
-        <a class="noDecoration" href="*">
-        <img class="cardPictureCircle" src="assets/images/persons/{{workout.createdBy.image}}" alt="Profile's picture"/>
-        </a>
-        <a class="noDecoration"  href="*">
-          <p>bla</p>
-          <p>bla</p>
-          <p>bla}</p>
-        </a>
+      <div class="carousselCards">
+        <div *ngFor="let workout of secondPartWorkouts" class="cardContainer">
+          <a class="noDecoration" href="*">
+          <img class="cardPictureCircle" src="assets/images/persons/{{workout.createdBy.image}}" alt="Profile's picture"/>
+          </a><br/>
+          <a class="noDecoration"  href="*">
+          <strong class="biggerFont">{{workout.name}}</strong><br/>
+          <p>Type : {{workout.type}}</p>
+          <div class="rating positionTop"><!--
+          --><a  [ngStyle]="{'color':setStarStyle(5, workout.ratingMoy)}" >☆</a><!--
+          --><a  [ngStyle]="{'color':setStarStyle(4, workout.ratingMoy)}" >☆</a><!--
+          --><a  [ngStyle]="{'color':setStarStyle(3, workout.ratingMoy)}" >☆</a><!--
+          --><a  [ngStyle]="{'color':setStarStyle(2, workout.ratingMoy)}" >☆</a><!--
+          --><a  [ngStyle]="{'color':setStarStyle(1, workout.ratingMoy)}" >☆</a>
+       </div>
+          </a>
+        </div>
       </div>
-    </div>
-  </ngu-item>
-  <ngu-item NguCarouselItem>
-    <div class="carousselCards">
-      <div *ngFor="let workout of thirdPartWorkouts" class="cardContainer">
-        <a class="noDecoration" href="*">
-        <img class="cardPictureCircle" src="assets/images/persons/{{workout.createdBy.image}}" alt="Profile's picture"/>
-        </a>
-        <a class="noDecoration"  href="*">
-          <p>bla</p>
-          <p>bla</p>
-          <p>bla}</p>
-        </a>
-      </div>
-    </div>
-  </ngu-item>
+    </ngu-item>
+    <ngu-item NguCarouselItem>
+        <div class="carousselCards">
+          <div *ngFor="let workout of thirdPartWorkouts" class="cardContainer">
+            <a class="noDecoration" href="*">
+            <img class="cardPictureCircle" src="assets/images/persons/{{workout.createdBy.image}}" alt="Profile's picture"/>
+            </a><br/>
+            <a class="noDecoration"  href="*">
+            <strong class="biggerFont">{{workout.name}}</strong><br/>
+            <p>Type : {{workout.type}}</p>
+            <div class="rating positionTop"><!--
+            --><a  [ngStyle]="{'color':setStarStyle(5, workout.ratingMoy)}" >☆</a><!--
+            --><a  [ngStyle]="{'color':setStarStyle(4, workout.ratingMoy)}" >☆</a><!--
+            --><a  [ngStyle]="{'color':setStarStyle(3, workout.ratingMoy)}" >☆</a><!--
+            --><a  [ngStyle]="{'color':setStarStyle(2, workout.ratingMoy)}" >☆</a><!--
+            --><a  [ngStyle]="{'color':setStarStyle(1, workout.ratingMoy)}" >☆</a>
+         </div>
+            </a>
+          </div>
+        </div>
+      </ngu-item>
   <button NguCarouselPrev class="leftRs" color="transparent" mat-mini-fab>
     <mat-icon><i class="buttonPersoL fa fa-angle-left"></i></mat-icon>
   </button>
