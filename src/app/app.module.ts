@@ -94,6 +94,8 @@ import {ChatMessagesListComponent} from './components/chat/chat-messages-list/ch
 import {UserService} from './services/user.service';
 import { GraphLegendComponent } from './components/dashboard/graph-display/graph-legend/graph-legend.component';
 import { WorkoutDivComponent } from './components/workout/workout-div/workout-div.component';
+import { StalkerComponent } from './components/admin/stalker/stalker.component';
+import {StalkerService} from './components/admin/stalker/stalker.service';
 
 @NgModule({
   declarations: [
@@ -139,6 +141,7 @@ import { WorkoutDivComponent } from './components/workout/workout-div/workout-di
     ChatMessagesListComponent,
     WorkoutDivComponent,
     GraphLegendComponent,
+    StalkerComponent,
   ],
   imports: [
     NguCarouselModule,
@@ -199,6 +202,7 @@ import { WorkoutDivComponent } from './components/workout/workout-div/workout-di
     RelationshipService,
     WorkoutService,
     UserService,
+    StalkerService,
   ],
   bootstrap: [AppComponent]
 })
