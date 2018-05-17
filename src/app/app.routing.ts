@@ -18,7 +18,7 @@ import {TownsGraphDetailsComponent} from './components/dashboard/graph-display/g
 import {GymsGraphDetailsComponent} from './components/dashboard/graph-display/graph-drawer/graph-details/gyms-graph-details/gyms-graph-details.component';
 /* tslint:enable:max-line-length */
 import {WorkoutGeneratorComponent} from './components/workout/workout-generator/workout-generator.component';
-import {WorkoutCarouselComponent} from './components/workout-carousel/workout-carousel.component';
+import {WorkoutCarouselComponent} from './components/workout/workout-carousel/workout-carousel.component';
 import {WorkoutComponent} from './components/workout/workout.component';
 import {ChatComponent} from './components/chat/chat.component';
 

@@ -33,6 +33,10 @@ export class WorkoutDivComponent implements OnInit{
     } );
     this.ratingMoy = this.ratingMoy/(Object.keys(ratingList).length);
 
+    if(this.ratingMoy < 5){
+      this.ratingMoy += 1;
+    }
+
   }
 
   sendWorkoutToPlanning(workout: Workout): void {
