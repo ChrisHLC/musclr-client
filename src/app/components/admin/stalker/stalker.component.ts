@@ -10,37 +10,35 @@ import {WorkoutFormModel} from '../../../models/workout-form.model';
 })
 export class StalkerComponent implements OnInit, OnDestroy {
   groups = [
-    {value: '0', viewValue: 'Group-0'},
-    {value: '1', viewValue: 'Group-1'},
-    {value: '2', viewValue: 'Group-2'},
-    {value: '3', viewValue: 'Group-3'},
-    {value: '4', viewValue: 'Group-4'},
-    {value: '99', viewValue: 'All'}
+    {value: '-1', viewValue: 'Tout'},
+    {value: '0', viewValue: 'Communauté-0'},
+    {value: '1', viewValue: 'Communauté-1'},
+    {value: '2', viewValue: 'Communauté-2'},
+    {value: '3', viewValue: 'Communauté-3'},
+    {value: '4', viewValue: 'Communauté-4'}
   ];
-
   gyms = [
-    {value: '0', viewValue: 'Gym-0'},
-    {value: '1', viewValue: 'Gym-1'},
-    {value: '2', viewValue: 'Gymp-2'},
-    {value: '3', viewValue: 'Gym-3'},
-    {value: '4', viewValue: 'Gym-4'},
-    {value: '5', viewValue: 'Gym-5'}
+    {value: '-1', viewValue: 'Tout'},
+    {value: '0', viewValue: 'Salle-0'},
+    {value: '1', viewValue: 'Salle-1'},
+    {value: '2', viewValue: 'Salle-2'},
+    {value: '3', viewValue: 'Salle-3'},
+    {value: '4', viewValue: 'Salle-4'},
+    {value: '5', viewValue: 'Salle-5'}
   ];
-
   plotlyUrls = {
-    map1: 'https://plot.ly/~zhening/1.embed',
-    map2: 'https://plot.ly/~zhening/2.embed',
-    map3: 'https://plot.ly/~zhening/0.embed',
-    threeD1: 'https://plot.ly/~zhening/0.embed',
-    threeD2: 'https://plot.ly/~zhening/0.embed',
-    threeD3: 'https://plot.ly/~zhening/0.embed',
+    eigenVectorMap: 'https://plot.ly/~zhening/9.embed',
+    closenessMap: 'https://plot.ly/~zhening/13.embed',
+    betweennessMap: 'https://plot.ly/~zhening/17.embed',
+    eigenVector3D: 'https://plot.ly/~zhening/11.embed',
+    closeness3D: 'https://plot.ly/~zhening/15.embed',
+    betweenness3D: 'https://plot.ly/~zhening/19.embed',
   };
 
   formModel: StalkerFormModel;
-
   onProcessing = false;
-
   plotlyToShow;
+  plotSelected: string;
 
   constructor(private stalkerService: StalkerService) {
   }
@@ -52,12 +50,14 @@ export class StalkerComponent implements OnInit, OnDestroy {
 
   changePlotlySrc(id: string) {
     this.plotlyToShow = this.plotlyUrls[id];
+    this.plotSelected = id;
   }
 
   ngOnInit() {
     (document.getElementsByClassName('navbar').item(0) as HTMLElement).style.backgroundColor = 'black';
-    this.formModel = new StalkerFormModel(null, null, null, null);
+    this.formModel = new StalkerFormModel(null, 25, 69, null);
     this.plotlyToShow = 'https://plot.ly/~zhening/1.embed';
+    this.plotSelected = 'eigenVectorMap';
   }
 
   ngOnDestroy() {
