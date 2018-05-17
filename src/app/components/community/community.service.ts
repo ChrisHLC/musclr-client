@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {AuthService} from '../auth/auth.service';
 
 @Injectable()
 export class CommunityService {
@@ -8,7 +9,7 @@ export class CommunityService {
   private usersUrl = environment.serverUrl + 'users/';
 
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private authService: AuthService) {
   }
 
   loadUsers() {
@@ -16,6 +17,6 @@ export class CommunityService {
   }
 
   loadCarouselUsers() {
-    return this.httpClient.get(this.usersUrl + 'carousel');
+    return this.httpClient.get(this.usersUrl + 'carousel/' + this.authService.getId());
   }
 }
