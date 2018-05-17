@@ -35,7 +35,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
       .subscribe((neo4j: { links: Link[], nodes: Node[] }) => {
 
           neo4j.nodes.forEach(function (node) {
-            self.nodes.push(new Node(node.id, node.group, node.label, node.level, node.role));
+            self.nodes.push(new Node(node.id, node.group, node.label, "#5cd65c", node.level, node.role));
           });
           this.userGraphService.setNodes(self.nodes);
           this.graph.forceDirectedGraph.nodes = self.nodes;
@@ -65,7 +65,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
             .subscribe((neo4j: { links: Link[], nodes: Node[] }) => {
 
                 neo4j.nodes.forEach(function (node) {
-                  self.nodes.push(new Node(node.id, node.group, node.label, 'Silver'));
+                  self.nodes.push(new Node(node.id, node.group, node.label, "#3366ff"));
                 });
 
                 neo4j.links.forEach(function (link) {
@@ -83,7 +83,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
             .subscribe((neo4j: { links: Link[], nodes: Node[] }) => {
 
                 neo4j.nodes.forEach(function (node) {
-                  self.nodes.push(new Node(node.id, node.group, node.label, 'Silver'));
+                  self.nodes.push(new Node(node.id, node.group, node.label, '#ff4d4d'));
                 });
 
                 neo4j.links.forEach(function (link) {
@@ -101,7 +101,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
             .subscribe((neo4j: { links: Link[], nodes: Node[] }) => {
 
                 neo4j.nodes.forEach(function (node) {
-                  self.nodes.push(new Node(node.id, node.group, node.label, 'Silver'));
+                  self.nodes.push(new Node(node.id, node.group, node.label, '#ffe066'));
                 });
 
                 neo4j.links.forEach(function (link) {
@@ -119,7 +119,7 @@ export class GraphDisplayComponent implements OnInit, OnDestroy {
             .subscribe((neo4j: { links: Link[], nodes: Node[] }) => {
 
                 neo4j.nodes.forEach(function (node) {
-                  self.nodes.push(new Node(node.id, node.group, node.label, node.level));
+                  self.nodes.push(new Node(node.id, node.group, node.label, "#5cd65c", node.level));
                 });
                 neo4j.links.forEach(function (link) {
                   self.links.push(new Link(link.source, link.target, link.label, link.directed));

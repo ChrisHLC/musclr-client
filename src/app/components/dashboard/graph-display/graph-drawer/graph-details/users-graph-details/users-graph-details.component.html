@@ -32,7 +32,7 @@
   </div>
   <div class="row ">
     <div class="btn-group">
-      <label *ngFor="let button of linkButtons" class="btn btn-elegant btn-sm waves-light" [(ngModel)]="checkModelLink[button.id]" mdbCheckbox
+      <label *ngFor="let button of linkButtons" class="btn btn-elegant btn-sm waves-light" [(ngModel)]="radioModelLink" mdbCheckbox
         mdbWavesEffect (click)="linkColor(button.id)">
         {{button.label}}
       </label>
@@ -44,8 +44,8 @@
   </div>
   <div class="row ">
     <div class="btn-group">
-      <label *ngFor="let button of nodeButtons" class="btn btn-elegant btn-sm waves-light" [(ngModel)]="radioModelNode" mdbRadio="{{button.id}}"
-        mdbWavesEffect (click)="nodeColor(button.id)">
+      <label *ngFor="let button of linkSizeButtons" class="btn btn-elegant btn-sm waves-light" [(ngModel)]="radioModelLinkSize" mdbRadio="{{button.id}}"
+        mdbWavesEffect (click)="linkSize(button.id)">
         {{button.label}}
       </label>
     </div>

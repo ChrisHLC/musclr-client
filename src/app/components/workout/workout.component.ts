@@ -17,6 +17,34 @@ export class WorkoutComponent implements OnInit, OnDestroy {
   show = 6;
   buttonDisabled: boolean;
 
+  constructor(private workoutService : WorkoutService) {
+    this.buttonDisabled = false;
+   }
+
+  ngOnInit() {
+    (document.getElementsByClassName('navbar').item(0) as HTMLElement).style.backgroundColor = 'black';
+    this.getTypeList();
+    
+  }
+
+  ngOnDestroy() {
+    (document.getElementsByClassName('navbar').item(0) as HTMLElement).style.backgroundColor = 'transparent';
+  }
+
+  getTypeList(): void {
+    this.typeList[0] = "ALL";
+    this.workoutService.getWorkoutTypeList()
+      .subscribe(
+        data => {
+          this.typeList = this.typeList.concat(data);
+          this.select(this.typeList[0], 0);
+        },
+        errorCode => console.log(errorCode),
+        () => {
+        }
+      );
+  }
+
   select(type: string, index: number): void {
     if(type == "ALL"){
       type = "all";
@@ -36,41 +64,7 @@ export class WorkoutComponent implements OnInit, OnDestroy {
         },
         errorCode => console.log(errorCode),
         () => {
-
-        }
-      );
-  }
-
-  showMore(): void {
-    this.show += 6;
-    if (this.show >= this.workoutList.length) {
-      this.buttonDisabled = true;
-    }
-  }
-
-  constructor(private workoutService : WorkoutService) {
-    this.buttonDisabled = false;
-   }
-
-  ngOnInit() {
-    (document.getElementsByClassName('navbar').item(0) as HTMLElement).style.backgroundColor = 'black';
-    this.getTypeList();
-  }
-
-  ngOnDestroy() {
-    (document.getElementsByClassName('navbar').item(0) as HTMLElement).style.backgroundColor = 'transparent';
-  }
-
-  getTypeList(): void {
-    this.typeList[0] = "ALL";
-    this.workoutService.getWorkoutTypeList()
-      .subscribe(
-        data => {
-          this.typeList = this.typeList.concat(data);
-        },
-        errorCode => console.log(errorCode),
-        () => {
-          this.select(this.typeList[0], 0);
+         
         }
       );
   }
@@ -79,7 +73,10 @@ export class WorkoutComponent implements OnInit, OnDestroy {
     return this.workoutService.getWorkoutListByType(type);
   }
 
-  
-
-
+  showMore(): void {
+    this.show += 6;
+    if (this.show >= this.workoutList.length) {
+      this.buttonDisabled = true;
+    }
+  }
 }

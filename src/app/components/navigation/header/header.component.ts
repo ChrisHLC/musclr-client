@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
     {'name': 'Communauté', 'routerLink': '/community'},
     {'name': 'Exercices', 'routerLink': '/exercises'},
     {'name': 'Séances', 'routerLink': '/workout'},
-    {'name': 'Dashboard', 'routerLink': '/dashboard'}
   ];
 
   selectedIndex: number;
@@ -48,6 +47,10 @@ export class HeaderComponent implements OnInit {
 
   get isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
+  }
+
+  get isAdmin(): boolean {
+    return this.authService.isAdmin();
   }
 
   acceptFriendRequest() {

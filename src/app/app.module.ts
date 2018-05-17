@@ -29,10 +29,10 @@ import {
   MatDatepickerModule,
   MatDialogModule,
   MatExpansionModule,
+  MatFormFieldModule,
   MatGridListModule,
   MatIconModule,
   MatInputModule,
-  MatFormFieldModule,
   MatListModule,
   MatMenuModule,
   MatNativeDateModule,
@@ -47,15 +47,14 @@ import {
   MatSlideToggleModule,
   MatSnackBarModule,
   MatSortModule,
+  MatStepperModule,
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatStepperModule,
 } from '@angular/material';
 import {CommunityComponent} from './components/community/community.component';
 import {SchedulerService} from './components/scheduler-container/scheduler.service';
-import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import {ExercisesComponent} from './components/exercises/exercises.component';
 import {SafePipe} from './components/exercises/safe.pipe';
@@ -74,7 +73,7 @@ import {TownsGraphDetailsComponent} from './components/dashboard/graph-display/g
 import {GymsGraphDetailsComponent} from './components/dashboard/graph-display/graph-drawer/graph-details/gyms-graph-details/gyms-graph-details.component';
 import {UsersGraphDetailsService} from './components/dashboard/graph-display/graph-drawer/graph-details/users-graph-details/users-graph-details.service';
 /* tslint:enable:max-line-length */
-import {WorkoutCarouselComponent} from './components/workout-carousel/workout-carousel.component';
+import {WorkoutCarouselComponent} from './components/workout/workout-carousel/workout-carousel.component';
 import {WorkoutComponent} from './components/workout/workout.component';
 import {UserCarouselComponent} from './components/community/user-carousel/user-carousel.component';
 import {WorkoutGeneratorComponent} from './components/workout/workout-generator/workout-generator.component';
@@ -92,7 +91,12 @@ import {ChatMessageFormComponent} from './components/chat/chat-message-form/chat
 import {ChatMessageItemComponent} from './components/chat/chat-message-item/chat-message-item.component';
 import {ChatMessagesListComponent} from './components/chat/chat-messages-list/chat-messages-list.component';
 import {UserService} from './services/user.service';
-import { WorkoutDivComponent } from './components/workout/workout-div/workout-div.component';
+import {GraphLegendComponent} from './components/dashboard/graph-display/graph-legend/graph-legend.component';
+import {WorkoutDivComponent} from './components/workout/workout-div/workout-div.component';
+import {StalkerComponent} from './components/admin/stalker/stalker.component';
+import {StalkerService} from './components/admin/stalker/stalker.service';
+import { KibanaComponent } from './components/admin/kibana/kibana.component';
+import {GraphLegendService} from './components/dashboard/graph-display/graph-legend/graph-legend.service';
 
 @NgModule({
   declarations: [
@@ -114,10 +118,8 @@ import { WorkoutDivComponent } from './components/workout/workout-div/workout-di
     NodeVisualComponent,
     GraphDisplayComponent,
     GraphDrawerComponent,
-    ProfileComponent,
     ExercisesComponent,
     ProfileComponent,
-    DashboardComponent,
     FriendItemComponent,
     SafePipe,
     UsersGraphDetailsComponent,
@@ -137,6 +139,9 @@ import { WorkoutDivComponent } from './components/workout/workout-div/workout-di
     ChatMessageItemComponent,
     ChatMessagesListComponent,
     WorkoutDivComponent,
+    GraphLegendComponent,
+    StalkerComponent,
+    KibanaComponent,
   ],
   imports: [
     NguCarouselModule,
@@ -197,6 +202,8 @@ import { WorkoutDivComponent } from './components/workout/workout-div/workout-di
     RelationshipService,
     WorkoutService,
     UserService,
+    StalkerService,
+    GraphLegendService,
   ],
   bootstrap: [AppComponent]
 })

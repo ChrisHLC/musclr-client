@@ -1,9 +1,6 @@
 <section id="seances" class="pt-5 mt-5 pb-3" xmlns="">
   <div class="container">
-    <div class="row">
-      <div class="carouselAlign"></div>
       <app-seance-carousel></app-seance-carousel>
-    </div>
     <div class="row">
       <!--bodyparts-->
       <div class="col-md-2 freeze">
@@ -38,7 +35,7 @@
               </div>
             </div>
             <div class="single-news" *ngFor="let workout of workoutList |slice:0:show let i=index">
-              <app-workout-div [workout]=workout></app-workout-div>
+              <app-workout-div [workout]="workout"></app-workout-div>
             </div>
             <div class="text-center">
                 <button type="button" class="btn btn-elegant waves-light" mdbRippleRadius (click)="showMore()"
