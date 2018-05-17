@@ -1,20 +1,59 @@
 <section id="stalker" class="pt-5 mt-5 pb-3">
   <div class="container">
+
+    <button mat-button [matMenuTriggerFor]="menuMap">Map</button>
+    <mat-menu #menuMap="matMenu">
+      <button mat-menu-item (click)="changePlotlySrc('map1')">Map 1</button>
+      <button mat-menu-item (click)="changePlotlySrc('map2')">Map 2</button>
+      <button mat-menu-item (click)="changePlotlySrc('map3')">Map 3</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menuThreeD">3D</button>
+    <mat-menu #menuThreeD="matMenu">
+      <button mat-menu-item (click)="changePlotlySrc('ThreeD1')">3D 1</button>
+      <button mat-menu-item (click)="changePlotlySrc('ThreeD2')">3D 2</button>
+      <button mat-menu-item (click)="changePlotlySrc('ThreeD3')">3D 3</button>
+    </mat-menu>
+
+
     <mat-drawer-container class="example-container">
+
       <mat-drawer-content>
         <div class="embed-responsive embed-responsive-16by9">
-          <iframe id="plotly-frame" class="embed-responsive-item" frameborder="0" scrolling="no" src="https://plot.ly/~cleitus/38.embed"></iframe>
+          <iframe id="plotly-frame" class="embed-responsive-item" frameborder="0" scrolling="no"
+                  [src]="(plotlyToShow) | safe"></iframe>
         </div>
       </mat-drawer-content>
       <mat-drawer mode="side" opened="true" position="end">
+
         <form class="form-container form-group" (ngSubmit)="onSubmit()">
-          <mat-form-field>
-            <mat-select placeholder="Group" id="Group" [(ngModel)]="formModel.group" name="Group">
-              <mat-option *ngFor="let group of groups" [value]="group.value">
-                {{ group.viewValue }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+          <div>
+            <mat-form-field>
+              <mat-select placeholder="Group" id="group" [(ngModel)]="formModel.group" name="group">
+                <mat-option *ngFor="let group of groups" [value]="group.value">
+                  {{ group.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field>
+              <input matInput placeholder="Age min" id="minAge" [(ngModel)]="formModel.minAge" name="minAge">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Age max" id="maxAge" [(ngModel)]="formModel.maxAge" name="maxAge">
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field>
+              <mat-select placeholder="Gym" id="gym" [(ngModel)]="formModel.gymId" name="gym">
+                <mat-option *ngFor="let gym of gyms" [value]="gym.value">
+                  {{ gym.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
 
 
           <div class="py-2">
@@ -24,16 +63,17 @@
                 Reset
               </label>
 
-              <button type="submit" class="btn btn-elegant waves-light" mdbRippleRadius>Submit</button>
+              <button type="submit" [disabled]="onProcessing" class="btn btn-elegant waves-light" mdbRippleRadius>
+                Submit
+              </button>
+              <mat-spinner *ngIf="onProcessing" [color]="warn" [diameter]="30"></mat-spinner>
+
             </div>
           </div>
         </form>
 
       </mat-drawer>
+
     </mat-drawer-container>
   </div>
 </section>
-
-
-<!--toto-->
-
